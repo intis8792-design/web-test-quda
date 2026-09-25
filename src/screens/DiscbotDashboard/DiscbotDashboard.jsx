@@ -40,13 +40,11 @@ const sections = [
   },
 ]
 
-function scrollToSection(id) {
-  const el = document.getElementById(id)
-  if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' })
-}
+const menuItems = Array.from({ length: 10 }, (_, i) => `-test menu ${String.fromCharCode(65 + i)}`)
 
 function DiscbotDashboard() {
   const [canvasScale, setCanvasScale] = useState(1)
+  const [openMenu, setOpenMenu] = useState(null)
 
   useEffect(() => {
     const updateScale = () => setCanvasScale(window.innerWidth / 1400)
@@ -58,7 +56,7 @@ function DiscbotDashboard() {
   return (
     <div className="min-h-screen w-full bg-[#201d1d] font-mono text-[#f1eeee]">
       {/* Sticky topbar — layout persis aslinya: logo kiri 6/10, nav kiri 271/top 39 */}
-      <header className="sticky top-0 z-30 h-[81px] w-full overflow-hidden bg-[#201d1d]">
+      <header className="sticky top-0 z-30 h-[81px] w-full bg-[#201d1d] relative">
         <a
           href="#"
           onClick={(e) => e.preventDefault()}
@@ -68,20 +66,42 @@ function DiscbotDashboard() {
         </a>
 
         <nav
-          aria-label="Content navigation"
-          className="absolute left-[271px] top-[39px] flex h-[33px] items-start gap-[8px] font-mono text-[15px] leading-[19.733px] max-[700px]:static max-[700px]:mt-2 max-[700px]:w-full max-[700px]:px-2 max-[700px]:gap-0 max-[700px]:text-[10px] max-[700px]:leading-[14px]"
-        >
-          {sections.map((s) => (
-            <button
-              key={s.id}
-              type="button"
-              onClick={() => scrollToSection(s.id)}
-              className="h-[33px] w-[108px] whitespace-nowrap border-0 bg-transparent px-0 text-center text-[#f1eeee] hover:bg-[#f1eeee] hover:text-[#201d1d] max-[700px]:h-[28px] max-[700px]:w-[25%] max-[700px]:overflow-hidden max-[700px]:text-ellipsis"
-            >
-              {s.label}
-            </button>
-          ))}
-        </nav>
+                  aria-label="Content navigation"
+                  className="absolute left-[271px] top-[39px] flex h-[33px] items-start gap-[8px] font-mono text-[15px] leading-[19.733px] max-[700px]:static max-[700px]:mt-2 max-[700px]:w-full max-[700px]:px-2 max-[700px]:gap-0 max-[700px]:text-[10px] max-[700px]:leading-[14px]"
+                >
+                  {sections.map((s) => (
+                    <button
+                      key={s.id}
+                      type="button"
+                      onClick={() => setOpenMenu((prev) => (prev === s.label ? null : s.label))}
+                      aria-expanded={openMenu === s.label}
+                      className="h-[33px] w-[108px] whitespace-nowrap border-0 bg-transparent px-0 text-center text-[#f1eeee] hover:bg-[#f1eeee] hover:text-[#201d1d] max-[700px]:h-[28px] max-[700px]:w-[25%] max-[700px]:overflow-hidden max-[700px]:text-ellipsis"
+                    >
+                      {s.label}
+                    </button>
+                  ))}
+                </nav>
+
+                {openMenu && (
+                  <div className="absolute left-[271px] top-[120px] z-30 w-[260px] border-[1px] border-[#f1eeee] bg-[#201d1d]">
+                    <div className="border-b-[1px] border-[#f1eeee]/30 px-3 py-2 text-[11px] tracking-[0.15em] uppercase text-[rgba(241,238,238,0.65)]">
+                      {openMenu}
+                    </div>
+                    <ul className="m-0 list-none p-0">
+                      {menuItems.map((item) => (
+                        <li key={item}>
+                          <a
+                            href="#"
+                            onClick={(e) => e.preventDefault()}
+                            className="block px-3 py-[7px] text-[13px] text-[#f1eeee] hover:bg-[#f1eeee] hover:text-[#201d1d]"
+                          >
+                            {item}
+                          </a>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
       </header>
 
       {/* Hero full-bleed — satu-satunya headline besar (level halaman, bukan per-section) */}
@@ -119,7 +139,7 @@ function DiscbotDashboard() {
             <section
               key={s.id}
               id={s.id}
-              className="mx-auto mb-20 max-w-6xl scroll-mt-[120px] max-[700px]:mb-12"
+              className="mx-auto mb-20 max-w-6xl max-[700px]:mb-12"
             >
               <div className="flex items-center gap-[32px] max-[700px]:flex-col">
                 {/* Kolom teks */}
