@@ -1,28 +1,44 @@
-import { useEffect, useMemo, useState } from 'react'
+import { useEffect, useState } from 'react'
 import backgroundImage from '../../assets/v2-assets/sapi-dithered.png'
-import transitionYellow from '../../assets/v2-assets/sapi-dithered-yellowchrome.png'
-import transitionEx from '../../assets/v2-assets/sapi-dithered-ex.png'
-import transitionRed from '../../assets/v2-assets/sapi-dithered-red.png'
+import imgBlue from '../../assets/v2-assets/sapi-dithered-blue.png'
+import imgRed from '../../assets/v2-assets/sapi-dithered-red.png'
+import imgYellow from '../../assets/v2-assets/sapi-dithered-yellowchrome.png'
+import imgEx from '../../assets/v2-assets/sapi-dithered-ex.png'
 
 const sections = [
-  { id: 'button1', label: 'Button1' },
-  { id: 'button2', label: 'Button2' },
-  { id: 'button3', label: 'Button3' },
-  { id: 'button4', label: 'Button4' },
+  {
+    id: 'button1',
+    label: 'Button1',
+    sublabel: '// SECTION 01',
+    heading: 'Selesaikan dengan fokus',
+    body: 'Tiap butir pekerjaan dikerjakan satu per satu tanpa berpindah tengah jalan. Hasilnya terlihat nyata, tertulis, dan bisa diverifikasi langkah demi langkah.',
+    img: imgBlue,
+  },
+  {
+    id: 'button2',
+    label: 'Button2',
+    sublabel: '// SECTION 02',
+    heading: 'Karya berawal dari detail',
+    body: 'Celah kecil sering kali menyimpan keputusan paling menentukan. Memperhatikan detil bukan soal kesempurnaan, melainkan cara memahami bagaimana satu hal dibangun dari banyak bagian kecil.',
+    img: imgYellow,
+  },
+  {
+    id: 'button3',
+    label: 'Button3',
+    sublabel: '// SECTION 03',
+    heading: 'Dari ide menjadi wujud nyata',
+    body: 'Sebuah ide baru berarti ketika sampai ke tangan yang merawatnya. Dicoba, dikoreksi, lalu dipakai — itulah cara sebuah wujud benar-benar tercipta dan berkembang.',
+    img: imgRed,
+  },
+  {
+    id: 'button4',
+    label: 'Button4',
+    sublabel: '// SECTION 04',
+    heading: 'Eksplorasi tanpa batas',
+    body: 'Rasa ingin tahu adalah bahan bakar paling awet yang pernah ada. Mencoba hal yang belum dikenal tidak selalu berujung rumit — kadang justru di situlah hal menarik muncul.',
+    img: imgEx,
+  },
 ]
-
-// Peta divider per section: button2/3 acak, button4 tetap di kanan.
-const sepDefs = {
-  button2: { img: transitionYellow, layout: 'random' },
-  button3: { img: transitionEx, layout: 'random' },
-  button4: { img: transitionRed, layout: { mode: 'side', side: 'right' } },
-}
-
-// "between" = image full-width di antara konten; "side" = berdampingan, posisi kiri/kanan.
-function randomLayout() {
-  const mode = Math.random() < 0.5 ? 'between' : 'side'
-  return mode === 'side' ? { mode, side: Math.random() < 0.5 ? 'left' : 'right' } : { mode }
-}
 
 function scrollToSection(id) {
   const el = document.getElementById(id)
@@ -31,17 +47,6 @@ function scrollToSection(id) {
 
 function DiscbotDashboard() {
   const [canvasScale, setCanvasScale] = useState(1)
-  // Layout tiap section diacak sekali per mount (stabil saat reload).
-  const layouts = useMemo(
-    () => {
-      const m = {}
-      for (const [id, def] of Object.entries(sepDefs)) {
-        m[id] = def.layout === 'random' ? randomLayout() : def.layout
-      }
-      return m
-    },
-    [],
-  )
 
   useEffect(() => {
     const updateScale = () => setCanvasScale(window.innerWidth / 1400)
@@ -79,7 +84,7 @@ function DiscbotDashboard() {
         </nav>
       </header>
 
-      {/* Hero pixel-art full-bleed di puncak */}
+      {/* Hero full-bleed — satu-satunya headline besar (level halaman, bukan per-section) */}
       <section id="hero" aria-label="Hero visual" style={{ height: `${484 * canvasScale}px` }}>
         <div
           className="w-[1400px]"
@@ -106,47 +111,36 @@ function DiscbotDashboard() {
         </div>
       </section>
 
-      {/* Konten tiap section: gambar pembatas berdampingan (side) atau di antara (between) */}
-      <main className="px-8 pt-12 pb-10 max-[700px]:px-4">
-        {sections.map((s) => {
-          const def = sepDefs[s.id]
-          const layout = layouts[s.id]
-          const isSide = def && layout.mode === 'side'
+      {/* Section alternating: ganjil = teks kiri/gambar kanan; genap = gambar kiri/teks kanan */}
+      <main className="px-8 pt-14 pb-16 max-[700px]:px-4">
+        {sections.map((s, i) => {
+          const imageRight = i % 2 === 0
           return (
-            <div key={s.id}>
-              {def && !isSide && (
-                <div className="my-14 max-[700px]:my-10">
-                  <img src={def.img} alt="" className="w-full" style={{ imageRendering: 'pixelated' }} />
-                </div>
-              )}
-
-              <section
-                id={s.id}
-                className={`scroll-mt-[120px] ${isSide ? 'flex items-center gap-10 max-[700px]:flex-col' : ''}`}
-              >
-                {isSide && (
-                  <div className={`w-[45%] max-[700px]:w-full ${layout.side === 'right' ? 'order-2' : ''}`}>
-                    <img src={def.img} alt="" className="w-full" style={{ imageRendering: 'pixelated' }} />
-                  </div>
-                )}
-
-                <div className={isSide ? 'flex-1 max-[700px]:w-full' : ''}>
-                  <h2 className="m-0 text-[20px] font-medium leading-[1.3] text-[#f1eeee]">
-                    {s.label}
+            <section
+              key={s.id}
+              id={s.id}
+              className="mx-auto mb-20 max-w-6xl scroll-mt-[120px] max-[700px]:mb-12"
+            >
+              <div className="flex items-center gap-[32px] max-[700px]:flex-col">
+                {/* Kolom teks */}
+                <div className={`flex-1 max-[700px]:w-full ${imageRight ? 'order-1' : 'order-2'}`}>
+                  <p className="m-0 mb-4 text-[13px] font-medium leading-[1.3] tracking-[0.08em] uppercase text-[rgba(241,238,238,0.65)]">
+                    {s.sublabel}
+                  </p>
+                  <h2 className="m-0 mb-5 text-[20px] font-medium leading-[1.3] text-[#e6eb52]">
+                    {s.heading}
                   </h2>
-                  <div className="mt-4 border-b border-dashed border-[rgba(241,238,238,0.35)]" />
-
-                  <p className="mt-10 mb-4 text-[13px] font-medium leading-[1.3] tracking-[0.08em] uppercase text-[rgba(241,238,238,0.65)]">
-                    // SECTION · {s.id}
-                  </p>
-                  <p className="m-0 max-w-2xl text-[14px] leading-[1.55] text-[#f1eeee]">
-                    Konten untuk {s.label}. Bagian ini akan menampilkan sub-konten sesuai
-                    desain sistem CLI Qudarebus — placeholder sementara sampai konten asli
-                    dimasukkan.
+                  <p className="m-0 max-w-xl text-[14px] leading-[1.55] text-[rgba(241,238,238,0.65)]">
+                    {s.body}
                   </p>
                 </div>
-              </section>
-            </div>
+
+                {/* Kolom gambar dither */}
+                <div className={`w-[45%] max-[700px]:w-full ${imageRight ? 'order-2' : 'order-1'}`}>
+                  <img src={s.img} alt="" className="w-full" style={{ imageRendering: 'pixelated' }} />
+                </div>
+              </div>
+            </section>
           )
         })}
       </main>
