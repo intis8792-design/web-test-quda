@@ -7,8 +7,6 @@ const panels = [
   { id: 'interest', label: '// 03. Interest' },
 ]
 
-const GALLERY_URL = 'https://galeriquda.carrd.co/'
-
 // Full literal tokens so Tailwind JIT definitely generates them
 const SUB_IDLE = 'bg-transparent text-[#f1eeee]'
 const SUB_ACTIVE = 'bg-[#f1eeee] text-[#201d1d]'
@@ -106,14 +104,6 @@ function AboutMe() {
               {p.label}
             </button>
           ))}
-          <a
-            href={GALLERY_URL}
-            target="_blank"
-            rel="noreferrer"
-            className={`${subItemBase} ${SUB_IDLE}`}
-          >
-            // 04. Photo Gallery
-          </a>
         </aside>
 
         <section className="min-w-0 flex-1">
