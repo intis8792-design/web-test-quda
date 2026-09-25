@@ -4,6 +4,7 @@ import imgBlue from '../../assets/v2-assets/sapi-dithered-blue.png'
 import imgRed from '../../assets/v2-assets/sapi-dithered-red.png'
 import imgYellow from '../../assets/v2-assets/sapi-dithered-yellowchrome.png'
 import imgEx from '../../assets/v2-assets/sapi-dithered-ex.png'
+import imgGreen from '../../assets/v2-assets/sapi-dithered-green.png'
 
 const sections = [
   {
@@ -37,6 +38,15 @@ const sections = [
     heading: 'Eksplorasi tanpa batas',
     body: 'Rasa ingin tahu adalah bahan bakar paling awet yang pernah ada. Mencoba hal yang belum dikenal tidak selalu berujung rumit — kadang justru di situlah hal menarik muncul.',
     img: imgEx,
+  },
+  {
+    id: 'section5',
+    label: 'Button5',
+    sublabel: '// SECTION 05',
+    heading: 'Tumbuh satu langkah lebih dekat',
+    body: 'Kemajuan tidak selalu datang dengan perubahan besar. Kadang ia hadir sebagai satu keputusan kecil yang berani dibuat, satu percobaan yang dijalankan, dan satu langkah yang membuat jalan berikutnya menjadi lebih jelas.',
+    img: imgGreen,
+    navbar: false,
   },
 ]
 
@@ -96,7 +106,7 @@ function DiscbotDashboard() {
                   aria-label="Content navigation"
                   className="absolute left-[271px] top-[39px] flex h-[33px] items-start gap-[8px] font-mono text-[15px] leading-[19.733px] max-[700px]:static max-[700px]:mt-2 max-[700px]:w-full max-[700px]:px-2 max-[700px]:gap-0 max-[700px]:text-[10px] max-[700px]:leading-[14px]"
                 >
-                  {sections.map((s) => (
+                  {sections.filter((s) => s.navbar !== false).map((s) => (
                     <button
                       key={s.id}
                       type="button"
