@@ -4,7 +4,6 @@ import backgroundImage from '../../assets/v2-assets/sapi-dithered.png'
 import imgBlue from '../../assets/v2-assets/sapi-dithered-blue.png'
 import imgRed from '../../assets/v2-assets/sapi-dithered-red.png'
 import imgYellow from '../../assets/v2-assets/sapi-dithered-yellowchrome.png'
-import imgEx from '../../assets/v2-assets/sapi-dithered-ex.png'
 import imgGreen from '../../assets/v2-assets/sapi-dithered-green.png'
 
 const sections = [
@@ -33,16 +32,8 @@ const sections = [
     img: imgRed,
   },
   {
-    id: 'button4',
-    label: 'Button4',
-    sublabel: '// SECTION 04',
-    heading: 'Eksplorasi tanpa batas',
-    body: 'Rasa ingin tahu adalah bahan bakar paling awet yang pernah ada. Mencoba hal yang belum dikenal tidak selalu berujung rumit — kadang justru di situlah hal menarik muncul.',
-    img: imgEx,
-  },
-  {
     id: 'section5',
-    sublabel: '// SECTION 05',
+    sublabel: '// SECTION 04',
     heading: 'Tumbuh satu langkah lebih dekat',
     body: 'Kemajuan tidak selalu datang dengan perubahan besar. Kadang ia hadir sebagai satu keputusan kecil yang berani dibuat, satu percobaan yang dijalankan, dan satu langkah yang membuat jalan berikutnya menjadi lebih jelas.',
     img: imgGreen,
