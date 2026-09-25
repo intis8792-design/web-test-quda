@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import backgroundImage from '../../assets/v2-assets/sapi-dithered.png'
+import transitionImage from '../../assets/v2-assets/sapi-dithered-yellowchrome.png'
 
 const sections = [
   { id: 'button1', label: 'Button1' },
@@ -84,15 +85,15 @@ function DiscbotDashboard() {
         {sections.map((s, i) => (
           <div key={s.id}>
             {i > 0 && (
-              <div className="my-14 overflow-hidden opacity-[0.66] max-[700px]:my-10">
-                <img
-                  src={backgroundImage}
-                  alt=""
-                  className="h-[220px] w-full object-cover"
-                  style={{ imageRendering: 'pixelated' }}
-                />
-              </div>
-            )}
+                          <div className="my-14 overflow-hidden opacity-[0.66] max-[700px]:my-10">
+                            <img
+                              src={transitionImage}
+                              alt=""
+                              className="h-[220px] w-full object-cover"
+                              style={{ imageRendering: 'pixelated' }}
+                            />
+                          </div>
+                        )}
 
             <section id={s.id} className="scroll-mt-[120px]">
               <h2 className="m-0 text-[20px] font-medium leading-[1.3] text-[#f1eeee]">
