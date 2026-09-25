@@ -86,7 +86,7 @@ function AboutMe() {
 
       {/* Splash header — Silkscreen */}
       <h1 className="m-0 px-8 pt-10 pb-8 font-silkscreen text-[56px] leading-[1.1] tracking-[-0.02em] text-[#e6eb52] max-[700px]:px-4 max-[700px]:text-[36px]">
-        ABOUT ME
+        ADDITIONAL INFORMATION
       </h1>
 
       {/* Console layout: sidebar kiri + panel kanan + gambar dither */}

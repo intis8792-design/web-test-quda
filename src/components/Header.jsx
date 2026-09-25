@@ -58,8 +58,9 @@ function Header() {
         <NavLink
           to="/about-me"
           className={({ isActive }) => `${navItemBase} ${isActive ? NAV_ACTIVE : NAV_IDLE}`}
+          style={{ width: '180px' }}
         >
-          About Me
+          Additional Information
         </NavLink>
         <NavLink
           to="/bot-discord"

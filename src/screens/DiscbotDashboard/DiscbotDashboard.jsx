@@ -9,9 +9,9 @@ import imgGreen from '../../assets/v2-assets/sapi-dithered-green.png'
 const sections = [
   {
     id: 'button1',
-    label: 'About Me',
+    label: 'Additional Information',
     sublabel: '// SECTION 01',
-    heading: 'About Me',
+    heading: 'Additional Information',
     body: 'Maybe not minor friendly, and posts about random things, but mainly posts about video games. I also repost some memes and shitpost.',
     img: imgBlue,
   },
@@ -20,7 +20,7 @@ const sections = [
     label: 'Button2',
     sublabel: '// SECTION 02',
     heading: 'Interest',
-    body: 'I play Minecraft and other games, for detail, see About me tab on the nav bar above. The other interest are musics, animanga, photography.',
+    body: 'I play Minecraft and other games, for detail, see Additional Information tab on the nav bar above. The other interest are musics, animanga, photography.',
     img: imgYellow,
   },
   {
