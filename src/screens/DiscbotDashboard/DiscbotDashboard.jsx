@@ -11,6 +11,7 @@ const tabs = [
 function DiscbotDashboard() {
   const [canvasScale, setCanvasScale] = useState(1)
   const [pageScale, setPageScale] = useState(1)
+  const [activeTab, setActiveTab] = useState(tabs[0].id)
 
   useEffect(() => {
     const updateScale = () => {
@@ -45,12 +46,15 @@ function DiscbotDashboard() {
           {tabs.map((tab) => {
             return (
               <button
-                key={tab.id}
-                type="button"
-                className="h-[33px] w-[108px] whitespace-nowrap border-0 bg-transparent px-0 text-center text-[#f1eeee] transition-colors hover:bg-[#f1eeee] hover:text-[#201d1d] max-[700px]:h-[28px] max-[700px]:w-[25%] max-[700px]:overflow-hidden max-[700px]:text-ellipsis"
-              >
-                {tab.label}
-              </button>
+                              key={tab.id}
+                              type="button"
+                              onClick={() => setActiveTab(tab.id)}
+                              aria-pressed={activeTab === tab.id}
+                              className="h-[33px] w-[108px] whitespace-nowrap border-0 bg-transparent px-0 text-center text-[#f1eeee] hover:bg-[#f1eeee] hover:text-[#201d1d] max-[700px]:h-[28px] max-[700px]:w-[25%] max-[700px]:overflow-hidden max-[700px]:text-ellipsis"
+                              style={activeTab === tab.id ? { backgroundColor: '#f1eeee', color: '#201d1d' } : undefined}
+                            >
+                              {tab.label}
+                            </button>
             )
           })}
         </nav>
@@ -69,7 +73,7 @@ function DiscbotDashboard() {
           data-node-id="9:167"
         >
           <div
-            className="absolute left-[23px] top-0 h-[516px] w-[1399px] overflow-hidden opacity-[0.66] backdrop-blur-[2px]"
+            className="absolute left-[23px] top-0 h-[516px] w-[1399px] overflow-hidden opacity-[0.66]"
             data-node-id="8:166"
           >
             <img

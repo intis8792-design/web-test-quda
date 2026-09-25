@@ -2,12 +2,12 @@
 @import "tailwindcss";
 
 :root {
-  --ink: #0d0d0d;
-  --surface-card: #e8e6e6;
+  --ink: #201d1d;
+  --surface-card: #f1eeee;
   --primary-active: #e6eb52;
   --splash-gradient-2: #fff19c;
   --splash-gradient-3: #fffdc4;
-  --splash-gradient-4: #ff4d10;
+  --splash-gradient-4: #fff4d1;
   font-family: 'IBM Plex Mono', monospace;
   color: var(--surface-card);
   background: var(--ink);
@@ -19,16 +19,24 @@
 
 .logo-gradient {
   background: linear-gradient(
-    to bottom,
-    var(--splash-gradient-3) 0%,
-    var(--splash-gradient-2) 30%,
-    var(--primary-active)    65%,
+    90deg,
+    var(--primary-active)     0%,
+    var(--splash-gradient-2) 35%,
+    var(--splash-gradient-3) 65%,
     var(--splash-gradient-4) 100%
   );
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
   color: transparent;
+}
+
+@supports not (background-clip: text) {
+  .logo-gradient {
+    background: none;
+    -webkit-text-fill-color: var(--primary-active);
+    color: var(--primary-active);
+  }
 }
 
 * { box-sizing: border-box; }
