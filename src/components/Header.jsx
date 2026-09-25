@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { Link, NavLink } from 'react-router-dom'
 
 const navButtons = [
-  { label: 'Button3', panelLeft: 'left-[503px]' },
+  { label: 'Other', panelLeft: 'left-[503px]' },
 ]
 
 // Mega menu 2 kolom (pola LAYOUT-VARIATIONS): label kategori + item judul+deskripsi
