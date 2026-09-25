@@ -40,7 +40,7 @@ function GaleriFoto() {
 
       <main className="px-8 pb-16 max-[700px]:px-4">
         <p className="m-0 mb-10 max-w-2xl text-[14px] leading-[1.6] text-[rgba(241,238,238,0.65)]">
-          Galeri foto amatir — hasil jepretan menggunakan ponsel. Mungkin selanjutnya akan menggunakan kamera.
+          Galeri foto amatir. Hasil foto yang saya ambil sendiri, yang sebagian besarnya diambil menggunakan kamera ponsel, serta kamera digital Canon PowerShot SX620 HS. Beberapa foto juga merupakan hasil eksperimen dengan teknik fotografi tertentu, seperti long exposure dan makro. Semoga Anda menikmati koleksi ini!
         </p>
 
         {/* Bento Grid — 4 kolom, sel modular bervariasi */}

@@ -7,24 +7,18 @@ const sections = [
   {
     id: 'bot-overview',
     sublabel: '// SECTION 01 — OVERVIEW',
-    heading: 'Lorem Ipsum Dolor Sit Amet',
-    body: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.',
+    heading: 'Bot Discord Overview',
+    body: 'This bot is a Discord bot that have some features, like flight tracking, minecraft seeds tracking for biome and structure(It may be inaccurate), no man sky ship seeds database, and some other features. This bot is still in development, so some features are not available yet. Well, most of the bot codes are vibecoded, when I actually learned how to code, I will rewrite the bot codes to be more efficient and clean.',
     img: imgYellow,
   },
   {
     id: 'bot-commands',
     sublabel: '// SECTION 02 — COMMANDS',
-    heading: 'Consectetur Adipiscing Elit',
-    body: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui.',
+    heading: 'Bot Discord Commands',
+    body: '/flight <callsign> - Get flight information by callsign, /minecraft-seed <seed> - Get biome and structure information by seed,  /nms-ship-seed <seed> - Get ship information by seed, and other commands',
     img: imgEx,
   },
-  {
-    id: 'bot-servers',
-    sublabel: '// SECTION 03 — SERVERS',
-    heading: 'Sed Do Eiusmod Tempor',
-    body: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam. Eaque ipsa quae ab illo inventore veritatis et quasi.',
-    img: imgGold,
-  },
+  
 ]
 
 function BotDiscord() {

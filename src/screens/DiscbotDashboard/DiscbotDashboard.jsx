@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
 import Header from '../../components/Header'
 import backgroundImage from '../../assets/v2-assets/sapi-dithered.png'
 import imgBlue from '../../assets/v2-assets/sapi-dithered-blue.png'
@@ -9,26 +10,26 @@ import imgGreen from '../../assets/v2-assets/sapi-dithered-green.png'
 const sections = [
   {
     id: 'button1',
-    label: 'Additional Information',
+    label: 'New Website',
     sublabel: '// SECTION 01',
-    heading: 'Additional Information',
+    heading: 'A new place to share some information about me and my interest.',
     body: 'Maybe not minor friendly, and posts about random things, but mainly posts about video games. I also repost some memes and shitpost.',
     img: imgBlue,
   },
   {
     id: 'button2',
-    label: 'Button2',
+    label: 'About Me',
     sublabel: '// SECTION 02',
-    heading: 'Interest',
-    body: 'I play Minecraft and other games, for detail, see Additional Information tab on the nav bar above. The other interest are musics, animanga, photography.',
+    heading: 'About Me',
+    body: 'Maybe not minor friendly, speak in Indonesian and English, like to posts about random things, but mainly posts about video games. I also repost some memes and shitpost.',
     img: imgYellow,
   },
   {
     id: 'button3',
-    label: 'Button3',
+    label: 'Interest',
     sublabel: '// SECTION 03',
-    heading: 'Dari ide menjadi wujud nyata',
-    body: 'Sebuah ide baru berarti ketika sampai ke tangan yang merawatnya. Dicoba, dikoreksi, lalu dipakai — itulah cara sebuah wujud benar-benar tercipta dan berkembang.',
+    heading: 'Interest',
+    body: <>I play Minecraft and other games, for detail, see{' '}<Link to="/about-me" className="text-[#e6eb52] underline">Additional Information</Link>{' '}tab on the nav bar above. The other interest are musics, animanga, photography.</>,
     img: imgRed,
   },
   {
