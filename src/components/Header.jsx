@@ -7,7 +7,7 @@ const NAV_IDLE = 'bg-transparent text-[#f1eeee]'
 const NAV_ACTIVE = 'bg-[#f1eeee] text-[#201d1d]'
 
 const navItemBase =
-  'flex h-[33px] w-[108px] items-center justify-center whitespace-nowrap border-0 px-0 text-center text-[#f1eeee] hover:bg-[#f1eeee] hover:text-[#201d1d] max-[700px]:h-[28px] max-[700px]:w-[25%] max-[700px]:overflow-hidden max-[700px]:text-ellipsis'
+  'flex h-[33px] w-[108px] items-center justify-center whitespace-nowrap border-0 px-0 text-center hover:bg-[#f1eeee] hover:text-[#201d1d] max-[700px]:h-[28px] max-[700px]:w-[25%] max-[700px]:overflow-hidden max-[700px]:text-ellipsis'
 
 function Header() {
   return (
