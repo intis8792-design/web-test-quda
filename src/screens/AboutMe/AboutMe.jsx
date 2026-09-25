@@ -21,6 +21,15 @@ function PanelTitle({ children }) {
   )
 }
 
+const music = [
+  'Kino',
+  'The Lantis',
+  'Frank Sinatra',
+  'Indonesia 6',
+  'Other kind of city pop / musik pop kreatif',
+  'Some classical music',
+]
+
 function InterestPanel() {
   return (
     <div>
@@ -29,6 +38,15 @@ function InterestPanel() {
         I play some gachaslop like hoyo games (Genshin, Zenless, Honkai Star Rail), WuWa,
         AKEndfield, and other games in general including minecraft, KCD, and roblox.
       </p>
+      <h3 className="m-0 mt-8 mb-4 text-[13px] font-medium uppercase tracking-[0.08em] text-[#e6eb52]">
+        // Music — favorite artists & genres
+      </h3>
+      {music.map((m) => (
+        <p key={m} className="m-0 mb-2 text-[14px] leading-[1.6]">
+          <span className="text-[#e6eb52]">- </span>
+          <span className="text-[#f1eeee]">{m}</span>
+        </p>
+      ))}
     </div>
   )
 }
