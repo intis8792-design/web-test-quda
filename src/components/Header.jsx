@@ -11,9 +11,7 @@ const menuGroups = [
     id: 'server',
     label: 'Server',
     items: [
-      { title: 'Status Server', desc: 'Pantau status uptime bot secara realtime' },
-      { title: 'Fitur Utama', desc: 'Daftar fitur yang tersedia di server' },
-      { title: 'Undangan', desc: 'Link undangan untuk bergabung ke server' },
+      { title: 'Server Minecraft', desc: 'Informasi server Minecraft pribadi', link: '/server-minecraft' },
     ],
   },
   {
