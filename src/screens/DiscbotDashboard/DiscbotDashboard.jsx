@@ -14,7 +14,6 @@ function scrollToSection(id) {
 }
 
 function DiscbotDashboard() {
-  // Scale the 1400px hero canvas to fill the viewport width, edge to edge.
   const [canvasScale, setCanvasScale] = useState(1)
 
   useEffect(() => {
@@ -26,35 +25,34 @@ function DiscbotDashboard() {
 
   return (
     <div className="min-h-screen w-full bg-[#201d1d] font-mono text-[#f1eeee]">
-      {/* Sticky topbar: logo + nav */}
-      <header className="sticky top-0 z-30 bg-[#201d1d] px-8 py-4 max-[700px]:flex-col max-[700px]:items-start max-[700px]:gap-3">
-        <div className="flex w-full items-center justify-between max-[700px]:flex-col max-[700px]:items-start max-[700px]:gap-3">
-          <a
-            href="#"
-            onClick={(e) => e.preventDefault()}
-            className="logo-gradient font-bytesized text-[41px] leading-none tracking-[-0.02em]"
-          >
-            Qudarebus
-          </a>
-          <nav
-            aria-label="Content navigation"
-            className="flex items-center gap-2 text-[15px] leading-[19.733px] max-[700px]:w-full max-[700px]:gap-0"
-          >
-            {sections.map((s) => (
-              <button
-                key={s.id}
-                type="button"
-                onClick={() => scrollToSection(s.id)}
-                className="h-[33px] px-3 whitespace-nowrap border-0 bg-transparent text-center text-[#f1eeee] hover:bg-[#f1eeee] hover:text-[#201d1d] max-[700px]:h-[28px] max-[700px]:flex-1"
-              >
-                {s.label}
-              </button>
-            ))}
-          </nav>
-        </div>
+      {/* Sticky topbar — layout persis aslinya: logo kiri 6/10, nav kiri 271/top 39 */}
+      <header className="sticky top-0 z-30 h-[81px] w-full overflow-hidden bg-[#201d1d]">
+        <a
+          href="#"
+          onClick={(e) => e.preventDefault()}
+          className="logo-gradient absolute left-[6px] top-[10px] font-bytesized text-[56px] leading-[70.4px] tracking-[-0.02em] max-[700px]:static max-[700px]:block max-[700px]:px-6 max-[700px]:pt-3 max-[700px]:text-[38px] max-[700px]:leading-[48px]"
+        >
+          Qudarebus
+        </a>
+
+        <nav
+          aria-label="Content navigation"
+          className="absolute left-[271px] top-[39px] flex h-[33px] items-start gap-[8px] font-mono text-[15px] leading-[19.733px] max-[700px]:static max-[700px]:mt-2 max-[700px]:w-full max-[700px]:px-2 max-[700px]:gap-0 max-[700px]:text-[10px] max-[700px]:leading-[14px]"
+        >
+          {sections.map((s) => (
+            <button
+              key={s.id}
+              type="button"
+              onClick={() => scrollToSection(s.id)}
+              className="h-[33px] w-[108px] whitespace-nowrap border-0 bg-transparent px-0 text-center text-[#f1eeee] hover:bg-[#f1eeee] hover:text-[#201d1d] max-[700px]:h-[28px] max-[700px]:w-[25%] max-[700px]:overflow-hidden max-[700px]:text-ellipsis"
+            >
+              {s.label}
+            </button>
+          ))}
+        </nav>
       </header>
 
-      {/* Landing hero (full-bleed pixel-art, scaled canvas) */}
+      {/* Hero pixel-art full-bleed di puncak */}
       <section id="hero" aria-label="Hero visual" style={{ height: `${484 * canvasScale}px` }}>
         <div
           className="w-[1400px]"
@@ -81,24 +79,37 @@ function DiscbotDashboard() {
         </div>
       </section>
 
-      {/* Scrollable content sections */}
+      {/* Konten section, dipisah hero sapi-dithered */}
       <main className="px-8 pt-12 pb-10 max-[700px]:px-4">
-        {sections.map((s) => (
-          <section key={s.id} id={s.id} className="mb-12 scroll-mt-[90px] max-[700px]:mb-8">
-            <h2 className="m-0 text-[20px] font-medium leading-[1.3] text-[#f1eeee]">
-              {s.label}
-            </h2>
-            <div className="mt-4 border-b border-dashed border-[rgba(241,238,238,0.35)]" />
+        {sections.map((s, i) => (
+          <div key={s.id}>
+            {i > 0 && (
+              <div className="my-14 overflow-hidden opacity-[0.66] max-[700px]:my-10">
+                <img
+                  src={backgroundImage}
+                  alt=""
+                  className="h-[220px] w-full object-cover"
+                  style={{ imageRendering: 'pixelated' }}
+                />
+              </div>
+            )}
 
-            <p className="mt-10 mb-4 text-[13px] font-medium leading-[1.3] tracking-[0.08em] uppercase text-[rgba(241,238,238,0.65)]">
-              // SECTION · {s.id}
-            </p>
-            <p className="m-0 max-w-2xl text-[14px] leading-[1.55] text-[#f1eeee]">
-              Konten untuk {s.label}. Bagian ini akan menampilkan sub-konten sesuai
-              desain sistem CLI Qudarebus — placeholder sementara sampai konten asli
-              dimasukkan.
-            </p>
-          </section>
+            <section id={s.id} className="scroll-mt-[120px]">
+              <h2 className="m-0 text-[20px] font-medium leading-[1.3] text-[#f1eeee]">
+                {s.label}
+              </h2>
+              <div className="mt-4 border-b border-dashed border-[rgba(241,238,238,0.35)]" />
+
+              <p className="mt-10 mb-4 text-[13px] font-medium leading-[1.3] tracking-[0.08em] uppercase text-[rgba(241,238,238,0.65)]">
+                // SECTION · {s.id}
+              </p>
+              <p className="m-0 max-w-2xl text-[14px] leading-[1.55] text-[#f1eeee]">
+                Konten untuk {s.label}. Bagian ini akan menampilkan sub-konten sesuai
+                desain sistem CLI Qudarebus — placeholder sementara sampai konten asli
+                dimasukkan.
+              </p>
+            </section>
+          </div>
         ))}
       </main>
     </div>
