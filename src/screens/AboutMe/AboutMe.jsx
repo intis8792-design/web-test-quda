@@ -1,4 +1,17 @@
+import { useState } from 'react'
 import Header from '../../components/Header'
+
+const panels = [
+  { id: 'interest', label: '// 01. Interest' },
+  { id: 'dni', label: "// 02. DNI's" },
+]
+
+// Full literal tokens so Tailwind JIT definitely generates them
+const SUB_IDLE = 'bg-transparent text-[#f1eeee]'
+const SUB_ACTIVE = 'bg-[#f1eeee] text-[#201d1d]'
+
+const subItemBase =
+  'block w-full whitespace-nowrap border-0 px-2 py-[6px] text-left text-[13px] hover:bg-[#f1eeee] hover:text-[#201d1d]'
 
 function PanelTitle({ children }) {
   return (
@@ -8,7 +21,18 @@ function PanelTitle({ children }) {
   )
 }
 
-// Intro & Interest sudah DIPINDAHKAN ke laman utama (Section 01 & 02) — halaman ini tinggal DNI.
+function InterestPanel() {
+  return (
+    <div>
+      <PanelTitle>Interest Section</PanelTitle>
+      <p className="m-0 max-w-2xl text-[14px] leading-[1.6] text-[#f1eeee]">
+        I play some gachaslop like hoyo games (Genshin, Zenless, Honkai Star Rail), WuWa,
+        AKEndfield, and other games in general including minecraft, KCD, and roblox.
+      </p>
+    </div>
+  )
+}
+
 function DniPanel() {
   const items = [
     'fit the DNI criteria (such as queerphobes, racist, ableist, religionphobic, and also zionist)',
@@ -28,7 +52,15 @@ function DniPanel() {
   )
 }
 
+const panelContent = {
+  interest: InterestPanel,
+  dni: DniPanel,
+}
+
 function AboutMe() {
+  const [active, setActive] = useState('interest')
+  const ActivePanel = panelContent[active]
+
   return (
     <div className="min-h-screen w-full bg-[#201d1d] font-mono text-[#f1eeee]">
       <Header />
@@ -38,8 +70,25 @@ function AboutMe() {
         ABOUT ME
       </h1>
 
-      <main className="px-8 pb-16 max-[700px]:px-4">
-        <DniPanel />
+      {/* Console layout: sidebar sub-panel kiri + main panel kanan */}
+      <main className="flex gap-8 px-8 pb-16 max-[700px]:flex-col max-[700px]:px-4">
+        <aside className="w-[230px] shrink-0" aria-label="Panel navigation">
+          {panels.map((p) => (
+            <button
+              key={p.id}
+              type="button"
+              onClick={() => setActive(p.id)}
+              aria-pressed={active === p.id}
+              className={`${subItemBase} ${active === p.id ? SUB_ACTIVE : SUB_IDLE}`}
+            >
+              {p.label}
+            </button>
+          ))}
+        </aside>
+
+        <section className="min-w-0 flex-1">
+          <ActivePanel />
+        </section>
       </main>
     </div>
   )
