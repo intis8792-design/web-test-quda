@@ -20,7 +20,7 @@ const sections = [
     label: 'Button2',
     sublabel: '// SECTION 02',
     heading: 'Interest',
-    body: 'I play some gachaslop like hoyo games (Genshin, Zenless, Honkai Star Rail), WuWa, AKEndfield, and other games in general including minecraft, KCD, and roblox. The other interest are musics, animanga, photography.',
+    body: 'I play Minecraft and other games, for detail, see About me tab on the nav bar above. The other interest are musics, animanga, photography.',
     img: imgYellow,
   },
   {
