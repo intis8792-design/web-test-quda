@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { Link, NavLink } from 'react-router-dom'
 
 const navButtons = [
-  { label: 'Other', panelLeft: 'left-[473px]' },
+  { label: 'Other', panelLeft: 'left-[271px]' },
 ]
 
 // Mega menu 3 kolom: Server, Kontak, Galeri
