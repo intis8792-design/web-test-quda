@@ -1,6 +1,6 @@
 import { Link, NavLink } from 'react-router-dom'
 
-const navButtons = ['Button2', 'Button3', 'Button4']
+const navButtons = ['Button3', 'Button4']
 
 // Full literal tokens so Tailwind JIT definitely generates them (active = inverse block)
 const NAV_IDLE = 'bg-transparent text-[#f1eeee]'
@@ -28,6 +28,12 @@ function Header() {
           className={({ isActive }) => `${navItemBase} ${isActive ? NAV_ACTIVE : NAV_IDLE}`}
         >
           About Me
+        </NavLink>
+        <NavLink
+          to="/bot-discord"
+          className={({ isActive }) => `${navItemBase} ${isActive ? NAV_ACTIVE : NAV_IDLE}`}
+        >
+          Bot Discord
         </NavLink>
         {navButtons.map((label) => (
           <button key={label} type="button" className={`${navItemBase} ${NAV_IDLE}`}>
