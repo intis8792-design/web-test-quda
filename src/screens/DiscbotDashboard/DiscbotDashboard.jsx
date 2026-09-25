@@ -51,8 +51,7 @@ function DiscbotDashboard() {
                               onClick={() => setActiveTab(tab.id)}
                               aria-pressed={activeTab === tab.id}
                               className="h-[33px] w-[108px] whitespace-nowrap border-0 bg-transparent px-0 text-center text-[#f1eeee] hover:bg-[#f1eeee] hover:text-[#201d1d] max-[700px]:h-[28px] max-[700px]:w-[25%] max-[700px]:overflow-hidden max-[700px]:text-ellipsis"
-                              style={activeTab === tab.id ? { backgroundColor: '#f1eeee', color: '#201d1d' } : undefined}
-                            >
+                                                          >
                               {tab.label}
                             </button>
             )
