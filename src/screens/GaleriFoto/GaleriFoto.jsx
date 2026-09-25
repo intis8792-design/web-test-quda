@@ -1,16 +1,18 @@
 import Header from '../../components/Header'
 
-/* Bento Grid — foto utama 2×2, foto medium, foto kecil */
-const bentoItems = [
-  { id: '01', span: 'col-span-2 row-span-2', label: 'foto utama' },
-  { id: '02', span: '', label: '' },
-  { id: '03', span: '', label: '' },
-  { id: '04', span: 'row-span-2', label: '' },
-  { id: '05', span: 'col-span-2', label: '' },
-  { id: '06', span: '', label: '' },
-  { id: '07', span: '', label: '' },
-  { id: '08', span: '', label: '' },
-  { id: '09', span: 'col-span-2', label: '' },
+/* Bento Grid — 9 foto dari galeriquda.carrd.co */
+const BASE = 'https://galeriquda.carrd.co/assets/images/gallery02'
+
+const photos = [
+  { id: '01', src: `${BASE}/8b8f724a.jpg?v=c919e3fa`, full: `${BASE}/8b8f724a_original.jpg?v=c919e3fa`, title: 'Pantai Parangtritis', span: 'col-span-2 row-span-2' },
+  { id: '02', src: `${BASE}/c8070441.jpg?v=c919e3fa`, full: `${BASE}/c8070441_original.jpg?v=c919e3fa`, title: 'Pemandangan Sawah', span: '' },
+  { id: '03', src: `${BASE}/30eb9ffb.jpg?v=c919e3fa`, full: `${BASE}/30eb9ffb_original.jpg?v=c919e3fa`, title: 'Sawah di Bibis', span: '' },
+  { id: '04', src: `${BASE}/aec65cb6.jpg?v=c919e3fa`, full: `${BASE}/aec65cb6_original.jpg?v=c919e3fa`, title: 'Passiflora Foetida', span: 'row-span-2' },
+  { id: '05', src: `${BASE}/66a06070.jpg?v=c919e3fa`, full: `${BASE}/66a06070_original.jpg?v=c919e3fa`, title: 'Felis Catus', span: 'col-span-2' },
+  { id: '06', src: `${BASE}/0aa34262.jpg?v=c919e3fa`, full: `${BASE}/0aa34262_original.jpg?v=c919e3fa`, title: 'Rembulan bersembunyi di balik ufuk senja', span: '' },
+  { id: '07', src: `${BASE}/3be52d5d.jpg?v=c919e3fa`, full: `${BASE}/3be52d5d_original.jpg?v=c919e3fa`, title: 'Morning Glory', span: '' },
+  { id: '08', src: `${BASE}/e578c9a3.jpg?v=c919e3fa`, full: `${BASE}/e578c9a3_original.jpg?v=c919e3fa`, title: 'Zinnia', span: '' },
+  { id: '09', src: `${BASE}/b29ec431.jpg?v=c919e3fa`, full: `${BASE}/b29ec431_original.jpg?v=c919e3fa`, title: 'Mutiara Hotel — Malioboro', span: 'col-span-2' },
 ]
 
 function GaleriFoto() {
@@ -18,31 +20,41 @@ function GaleriFoto() {
     <div className="min-h-screen w-full bg-[#201d1d] font-mono text-[#f1eeee]">
       <Header />
 
-      <h1 className="m-0 px-8 pt-10 pb-8 font-silkscreen text-[56px] leading-[1.1] tracking-[-0.02em] text-[#e6eb52] max-[700px]:px-4 max-[700px]:text-[36px]">
+      <h1 className="m-0 px-8 pt-10 pb-4 font-silkscreen text-[56px] leading-[1.1] tracking-[-0.02em] text-[#e6eb52] max-[700px]:px-4 max-[700px]:text-[36px]">
         GALERI FOTO
       </h1>
 
       <main className="px-8 pb-16 max-[700px]:px-4">
         <p className="m-0 mb-10 max-w-2xl text-[14px] leading-[1.6] text-[rgba(241,238,238,0.65)]">
-          Koleksi foto pribadi dan hasil jepretan sehari-hari. Foto akan ditambahkan secara bertahap.
+          Galeri foto amatir — hasil jepretan menggunakan ponsel. Mungkin selanjutnya akan menggunakan kamera.
         </p>
 
         {/* Bento Grid — 4 kolom, sel modular bervariasi */}
         <div className="grid grid-cols-4 gap-3 max-[700px]:grid-cols-2">
-          {bentoItems.map((item) => (
-            <div
-              key={item.id}
-              className={`flex min-h-[160px] flex-col items-center justify-center border border-dashed border-[rgba(241,238,238,0.35)] p-3 ${item.span}`}
+          {photos.map((photo) => (
+            <a
+              key={photo.id}
+              href={photo.full}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`group relative block overflow-hidden ${photo.span}`}
             >
-              <span className="text-[11px] text-[rgba(241,238,238,0.35)]">
-                // {item.id}
-              </span>
-              {item.label && (
-                <span className="mt-1 text-[13px] text-[rgba(241,238,238,0.35)]">
-                  {item.label}
+              <img
+                src={photo.src}
+                alt={photo.title}
+                className="h-full w-full object-cover"
+                loading="lazy"
+              />
+              {/* Caption overlay — muncul saat hover */}
+              <div className="absolute inset-x-0 bottom-0 bg-[rgba(32,29,29,0.75)] px-3 py-2 opacity-100 group-hover:opacity-100">
+                <span className="block text-[11px] text-[rgba(241,238,238,0.50)]">
+                  // {photo.id}
                 </span>
-              )}
-            </div>
+                <span className="block text-[13px] text-[#f1eeee]">
+                  {photo.title}
+                </span>
+              </div>
+            </a>
           ))}
         </div>
       </main>
