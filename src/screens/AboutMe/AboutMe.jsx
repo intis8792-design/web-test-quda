@@ -2,11 +2,12 @@ import { useState } from 'react'
 import Header from '../../components/Header'
 
 const panels = [
-  { id: 'overview', label: '// 01. Overview & Bio' },
-  { id: 'skills', label: '// 02. Technical Skills' },
-  { id: 'experience', label: '// 03. Experience Log' },
-  { id: 'specs', label: '// 04. System Specs / Setup' },
+  { id: 'intro', label: '// 01. Intro' },
+  { id: 'dni', label: "// 02. DNI's" },
+  { id: 'interest', label: '// 03. Interest' },
 ]
+
+const GALLERY_URL = 'https://galeriquda.carrd.co/'
 
 // Full literal tokens so Tailwind JIT definitely generates them
 const SUB_IDLE = 'bg-transparent text-[#f1eeee]'
@@ -23,103 +24,63 @@ function PanelTitle({ children }) {
   )
 }
 
-function KeyLine({ k, v, lime }) {
-  return (
-    <p className="m-0 mb-2 text-[14px] leading-[1.6]">
-      <span className="text-[rgba(241,238,238,0.65)]">{`${k}          `.slice(0, 12)}:</span>{' '}
-      <span className={lime ? 'text-[#e6eb52]' : 'text-[#f1eeee]'}>{v}</span>
-    </p>
-  )
-}
-
-function OverviewPanel() {
+function IntroPanel() {
   return (
     <div>
-      <PanelTitle>Overview & Bio</PanelTitle>
-      <KeyLine k="STATUS" v="ACTIVE / AVAILABLE FOR PROJECTS" lime />
-      <KeyLine k="ROLE" v="Fullstack Developer / UI Designer" />
-      <KeyLine k="LOCATION" v="Indonesia" />
-      <KeyLine k="MAIN STACK" v="React, Tailwind CSS, Node.js" />
-      <p className="mt-6 mb-0 max-w-2xl bg-[rgba(241,238,238,0.05)] py-3 pl-4 pr-3 text-[14px] leading-[1.6] text-[rgba(241,238,238,0.65)]">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt
-        ut labore et dolore magna aliqua — dibangun satu baris pada satu waktu, diverifikasi tiap
-        langkah.
+      <PanelTitle>Intro</PanelTitle>
+      <p className="m-0 mb-3 max-w-2xl text-[14px] leading-[1.6] text-[#f1eeee]">
+        You can call me Qudarebus. Maybe not minor friendly (current moots okay, but feel free to
+        bub), and posts about random things, but mainly posts about video games.
+      </p>
+      <p className="m-0 max-w-2xl text-[14px] leading-[1.6] text-[rgba(241,238,238,0.65)]">
+        I also post my amateur photography things, and sometimes repost some memes and shitpost.
       </p>
     </div>
   )
 }
 
-function pad(s, n) {
-  return (s + ' '.repeat(n)).slice(0, n)
-}
-
-function SkillsPanel() {
-  const rows = [
-    ['Frontend', 'React, Next.js, Tailwind CSS', 'ADVANCED'],
-    ['Backend', 'Node.js, Express, PostgreSQL', 'INTERMEDIATE'],
-    ['Tools', 'Git, Docker, Linux CLI', 'ADVANCED'],
+function DniPanel() {
+  const items = [
+    'fit the DNI criteria (such as queerphobes, racist, ableist, religionphobic, and also zionist)',
+    'Pedophilia',
+    'Under 18 years',
   ]
   return (
     <div>
-      <PanelTitle>Technical Skills</PanelTitle>
-      <div className="text-[14px] leading-[1.8]">
-        <p className="m-0 text-[rgba(241,238,238,0.65)]">
-          {`${pad('CATEGORY', 12)}| ${pad('TECHNOLOGIES', 32)}| LEVEL`}
-        </p>
-        {rows.map(([cat, tech, level]) => (
-          <p key={cat} className="m-0">
-            <span className="text-[#f1eeee]">{`${pad(cat, 12)}| ${pad(tech, 32)}| `}</span>
-            <span className="text-[#e6eb52]">{level}</span>
-          </p>
-        ))}
-      </div>
-    </div>
-  )
-}
-
-function ExperiencePanel() {
-  const logs = [
-    ['2024', 'Fullstack Developer', 'Qudarebus Landing'],
-    ['2023', 'UI Designer', 'Discord Bot Dashboard'],
-    ['2022', 'Hobbyist', 'Ayamlaut Bot Experiment'],
-  ]
-  return (
-    <div>
-      <PanelTitle>Experience Log</PanelTitle>
-      {logs.map(([year, role, place]) => (
-        <p key={year} className="m-0 mb-2 text-[14px] leading-[1.6]">
-          <span className="text-[#e6eb52]">{`[${year}]`}</span>
-          <span className="text-[rgba(241,238,238,0.65)]">{' — '}</span>
-          <span className="text-[#f1eeee]">{`${role} @ ${place}`}</span>
-          <span className="text-[rgba(241,238,238,0.65)]">{' — log entry placeholder.'}</span>
+      <PanelTitle>Do Not Interact !!</PanelTitle>
+      {items.map((t) => (
+        <p key={t} className="m-0 mb-2 text-[14px] leading-[1.6]">
+          <span className="text-[#e6eb52]">- </span>
+          <span className="text-[#f1eeee]">{t}</span>
         </p>
       ))}
     </div>
   )
 }
 
-function SpecsPanel() {
+function InterestPanel() {
   return (
     <div>
-      <PanelTitle>System Specs / Setup</PanelTitle>
-      <KeyLine k="OS" v="Windows 11" />
-      <KeyLine k="EDITOR" v="VS Code + Hermes Agent" />
-      <KeyLine k="RUNTIME" v="Node.js 22 / npm" />
-      <KeyLine k="TERMINAL" v="Git-Bash / PowerShell" />
-      <KeyLine k="THEME" v="Qudarebus CLI (#201d1d / #f1eeee / #e6eb52)" lime />
+      <PanelTitle>Interest Section</PanelTitle>
+      <p className="m-0 mb-3 max-w-2xl text-[14px] leading-[1.6] text-[#f1eeee]">
+        I play some gachaslop like hoyo games (Genshin, Zenless, Honkai Star Rail), WuWa,
+        AKEndfield, and other games in general including minecraft, KCD, and roblox.
+      </p>
+      <p className="m-0 max-w-2xl text-[14px] leading-[1.6] text-[rgba(241,238,238,0.65)]">
+        The other interest are musics, animanga, photography.
+      </p>
     </div>
   )
 }
 
 const panelContent = {
-  overview: OverviewPanel,
-  skills: SkillsPanel,
-  experience: ExperiencePanel,
-  specs: SpecsPanel,
+  intro: IntroPanel,
+  dni: DniPanel,
+  interest: InterestPanel,
 }
 
 function AboutMe() {
-  const [active, setActive] = useState('overview')
+  const [active, setActive] = useState('intro')
   const ActivePanel = panelContent[active]
 
   return (
@@ -145,6 +106,14 @@ function AboutMe() {
               {p.label}
             </button>
           ))}
+          <a
+            href={GALLERY_URL}
+            target="_blank"
+            rel="noreferrer"
+            className={`${subItemBase} ${SUB_IDLE}`}
+          >
+            // 04. Photo Gallery
+          </a>
         </aside>
 
         <section className="min-w-0 flex-1">
