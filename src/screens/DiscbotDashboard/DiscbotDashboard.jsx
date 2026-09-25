@@ -74,8 +74,10 @@ function DiscbotDashboard() {
                       key={s.id}
                       type="button"
                       onClick={() => setOpenMenu((prev) => (prev === s.label ? null : s.label))}
-                      aria-expanded={openMenu === s.label}
-                      className="h-[33px] w-[108px] whitespace-nowrap border-0 bg-transparent px-0 text-center text-[#f1eeee] hover:bg-[#f1eeee] hover:text-[#201d1d] max-[700px]:h-[28px] max-[700px]:w-[25%] max-[700px]:overflow-hidden max-[700px]:text-ellipsis"
+                                    aria-expanded={openMenu === s.label}
+                                    className={`h-[33px] w-[108px] whitespace-nowrap border-0 bg-transparent px-0 text-center text-[#f1eeee] hover:bg-[#f1eeee] hover:text-[#201d1d] ${
+                                      openMenu === s.label ? 'bg-[#f1eeee] text-[#201d1d]' : ''
+                                    } max-[700px]:h-[28px] max-[700px]:w-[25%] max-[700px]:overflow-hidden max-[700px]:text-ellipsis`}
                     >
                       {s.label}
                     </button>
