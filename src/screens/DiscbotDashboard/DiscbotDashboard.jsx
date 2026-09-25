@@ -1,6 +1,10 @@
 import { useEffect, useState } from 'react'
 import backgroundImage from '../../assets/v2-assets/sapi-dithered.png'
-import transitionImage from '../../assets/v2-assets/sapi-dithered-yellowchrome.png'
+import transitionYellow from '../../assets/v2-assets/sapi-dithered-yellowchrome.png'
+import transitionEx from '../../assets/v2-assets/sapi-dithered-ex.png'
+import transitionBlue from '../../assets/v2-assets/sapi-dithered-blue.png'
+
+const separators = [transitionYellow, transitionEx, transitionBlue]
 
 const sections = [
   { id: 'button1', label: 'Button1' },
@@ -87,7 +91,7 @@ function DiscbotDashboard() {
             {i > 0 && (
                           <div className="my-14 max-[700px]:my-10">
                             <img
-                              src={transitionImage}
+                              src={separators[i - 1]}
                               alt=""
                               className="w-full"
                               style={{ imageRendering: 'pixelated' }}
