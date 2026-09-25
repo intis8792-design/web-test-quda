@@ -1,10 +1,19 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import backgroundImage from '../../assets/v2-assets/sapi-dithered.png'
 import transitionYellow from '../../assets/v2-assets/sapi-dithered-yellowchrome.png'
 import transitionEx from '../../assets/v2-assets/sapi-dithered-ex.png'
 import transitionBlue from '../../assets/v2-assets/sapi-dithered-blue.png'
 
 const separators = [transitionYellow, transitionEx, transitionBlue]
+
+// Layout tiap divider: "between" = image full-width di antara konten;
+// "side" = image berdampingan dgn konten, posisi kanan/kiri acak.
+// Diacak sekali per render (useMemo) supaya stabil tiap di-reload.
+function randomLayouts() {
+  const modes = ['between', 'side', 'side'] // biarkan 1/3 tetap "between"
+  const shuffled = [...modes].sort(() => Math.random() - 0.5)
+  return shuffled.map((mode) => (mode === 'side' ? { mode, side: Math.random() < 0.5 ? 'left' : 'right' } : { mode }))
+}
 
 const sections = [
   { id: 'button1', label: 'Button1' },
@@ -20,6 +29,7 @@ function scrollToSection(id) {
 
 function DiscbotDashboard() {
   const [canvasScale, setCanvasScale] = useState(1)
+  const layouts = useMemo(() => randomLayouts(), [])
 
   useEffect(() => {
     const updateScale = () => setCanvasScale(window.innerWidth / 1400)
@@ -84,39 +94,50 @@ function DiscbotDashboard() {
         </div>
       </section>
 
-      {/* Konten section, dipisah hero sapi-dithered */}
-      <main className="px-8 pt-12 pb-10 max-[700px]:px-4">
-        {sections.map((s, i) => (
-          <div key={s.id}>
-            {i > 0 && (
-                          <div className="my-14 max-[700px]:my-10">
-                            <img
-                              src={separators[i - 1]}
-                              alt=""
-                              className="w-full"
-                              style={{ imageRendering: 'pixelated' }}
-                            />
-                          </div>
-                        )}
+      {/* Konten tiap section: gambar pembatas berdampingan (side) atau di antara (between) */}
+            <main className="px-8 pt-12 pb-10 max-[700px]:px-4">
+              {sections.map((s, i) => {
+                const div = separators[i - 1]
+                const layout = layouts[i - 1]
+                const isSide = div && layout.mode === 'side'
+                return (
+                  <div key={s.id}>
+                    {i > 0 && !isSide && (
+                      <div className="my-14 max-[700px]:my-10">
+                        <img src={div} alt="" className="w-full" style={{ imageRendering: 'pixelated' }} />
+                      </div>
+                    )}
 
-            <section id={s.id} className="scroll-mt-[120px]">
-              <h2 className="m-0 text-[20px] font-medium leading-[1.3] text-[#f1eeee]">
-                {s.label}
-              </h2>
-              <div className="mt-4 border-b border-dashed border-[rgba(241,238,238,0.35)]" />
+                    <section
+                      id={s.id}
+                      className={`scroll-mt-[120px] ${isSide ? 'flex items-center gap-10 max-[700px]:flex-col' : ''}`}
+                    >
+                      {isSide && (
+                        <div className={`w-[45%] max-[700px]:w-full ${layout.side === 'right' ? 'order-2' : ''}`}>
+                          <img src={div} alt="" className="w-full" style={{ imageRendering: 'pixelated' }} />
+                        </div>
+                      )}
 
-              <p className="mt-10 mb-4 text-[13px] font-medium leading-[1.3] tracking-[0.08em] uppercase text-[rgba(241,238,238,0.65)]">
-                // SECTION · {s.id}
-              </p>
-              <p className="m-0 max-w-2xl text-[14px] leading-[1.55] text-[#f1eeee]">
-                Konten untuk {s.label}. Bagian ini akan menampilkan sub-konten sesuai
-                desain sistem CLI Qudarebus — placeholder sementara sampai konten asli
-                dimasukkan.
-              </p>
-            </section>
-          </div>
-        ))}
-      </main>
+                      <div className={isSide ? 'flex-1 max-[700px]:w-full' : ''}>
+                        <h2 className="m-0 text-[20px] font-medium leading-[1.3] text-[#f1eeee]">
+                          {s.label}
+                        </h2>
+                        <div className="mt-4 border-b border-dashed border-[rgba(241,238,238,0.35)]" />
+
+                        <p className="mt-10 mb-4 text-[13px] font-medium leading-[1.3] tracking-[0.08em] uppercase text-[rgba(241,238,238,0.65)]">
+                          // SECTION · {s.id}
+                        </p>
+                        <p className="m-0 max-w-2xl text-[14px] leading-[1.55] text-[#f1eeee]">
+                          Konten untuk {s.label}. Bagian ini akan menampilkan sub-konten sesuai
+                          desain sistem CLI Qudarebus — placeholder sementara sampai konten asli
+                          dimasukkan.
+                        </p>
+                      </div>
+                    </section>
+                  </div>
+                )
+              })}
+            </main>
     </div>
   )
 }
