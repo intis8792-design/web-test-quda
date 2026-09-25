@@ -33,7 +33,7 @@ function BotDiscord() {
       <Header />
       <main className="px-8 pt-10 pb-16 max-[700px]:px-4">
         {/* Top hero headline — Bytesized, satu per halaman */}
-        <h1 className="m-0 mb-16 font-bytesized text-[64px] leading-[1.1] tracking-[-0.02em] text-[#e6eb52] max-[700px]:text-[40px]">
+        <h1 className="m-0 mb-16 font-silkscreen text-[56px] leading-[1.1] tracking-[-0.02em] text-[#e6eb52] max-[700px]:text-[36px]">
           BOT DISCORD
         </h1>
 
