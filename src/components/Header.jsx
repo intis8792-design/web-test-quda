@@ -29,9 +29,7 @@ const menuGroups = [
     id: 'galeri',
     label: 'Galeri',
     items: [
-      { title: 'Foto', desc: 'Koleksi foto dan karya visual' },
-      { title: 'Pixel Art', desc: 'Kumpulan karya pixel art dither' },
-      { title: 'Proyek', desc: 'Dokumentasi proyek-proyek yang sudah dibangun' },
+      { title: 'Foto', desc: 'Galeri foto pribadi dan koleksi fotografi', link: '/galeri-foto' },
     ],
   },
 ]
@@ -94,16 +92,29 @@ function Header() {
               <ul className="m-0 list-none p-0">
                 {group.items.map((item) => (
                   <li key={item.title}>
-                    <a
-                      href="#"
-                      onClick={(e) => e.preventDefault()}
-                      className="block px-2 py-[6px] text-[13px] leading-[1.3] text-[#f1eeee] hover:bg-[#f1eeee] hover:text-[#201d1d]"
-                    >
-                      <span className="block font-medium">{item.title}</span>
-                      <span className="block text-[11px] text-[rgba(241,238,238,0.65)]">
-                        {item.desc}
-                      </span>
-                    </a>
+                    {item.link ? (
+                      <Link
+                        to={item.link}
+                        onClick={() => setOpenMenu(null)}
+                        className="block px-2 py-[6px] text-[13px] leading-[1.3] text-[#f1eeee] hover:bg-[#f1eeee] hover:text-[#201d1d]"
+                      >
+                        <span className="block font-medium">{item.title}</span>
+                        <span className="block text-[11px] text-[rgba(241,238,238,0.65)]">
+                          {item.desc}
+                        </span>
+                      </Link>
+                    ) : (
+                      <a
+                        href="#"
+                        onClick={(e) => e.preventDefault()}
+                        className="block px-2 py-[6px] text-[13px] leading-[1.3] text-[#f1eeee] hover:bg-[#f1eeee] hover:text-[#201d1d]"
+                      >
+                        <span className="block font-medium">{item.title}</span>
+                        <span className="block text-[11px] text-[rgba(241,238,238,0.65)]">
+                          {item.desc}
+                        </span>
+                      </a>
+                    )}
                   </li>
                 ))}
               </ul>
