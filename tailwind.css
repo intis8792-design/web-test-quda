@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Bytesized&family=IBM+Plex+Mono:wght@400;500;700&display=swap');
+@import "tailwindcss";
+
+:root {
+  --ink: #0d0d0d;
+  --surface-card: #e8e6e6;
+  --primary-active: #e6eb52;
+  --splash-gradient-2: #fff19c;
+  --splash-gradient-3: #fffdc4;
+  --splash-gradient-4: #ff4d10;
+  font-family: 'IBM Plex Mono', monospace;
+  color: var(--surface-card);
+  background: var(--ink);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: none;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.logo-gradient {
+  background: linear-gradient(
+    to bottom,
+    var(--splash-gradient-3) 0%,
+    var(--splash-gradient-2) 30%,
+    var(--primary-active)    65%,
+    var(--splash-gradient-4) 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+* { box-sizing: border-box; }
+body { margin: 0; min-width: 320px; overflow-x: hidden; }
+button, input { font: inherit; }
+button { cursor: pointer; }
+html { scroll-behavior: smooth; }
+.font-bytesized { font-family: 'Bytesized', monospace; }
