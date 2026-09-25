@@ -2,8 +2,8 @@ import { useState } from 'react'
 import { Link, NavLink } from 'react-router-dom'
 
 const navButtons = [
-  { label: 'Button3' },
-  { label: 'Button4', menu: true },
+  { label: 'Button3', panelLeft: 'left-[503px]' },
+  { label: 'Button4', panelLeft: 'left-[619px]' },
 ]
 
 // Mega menu 2 kolom (pola LAYOUT-VARIATIONS): label kategori + item judul+deskripsi
@@ -67,27 +67,21 @@ function Header() {
         >
           Bot Discord
         </NavLink>
-        {navButtons.map((btn) =>
-          btn.menu ? (
-            <button
-              key={btn.label}
-              type="button"
-              onClick={() => setOpenMenu((prev) => (prev === btn.label ? null : btn.label))}
-              aria-expanded={openMenu === btn.label}
-              className={`${navItemBase} ${openMenu === btn.label ? NAV_ACTIVE : NAV_IDLE}`}
-            >
-              {btn.label}
-            </button>
-          ) : (
-            <button key={btn.label} type="button" className={`${navItemBase} ${NAV_IDLE}`}>
-              {btn.label}
-            </button>
-          ),
-        )}
+        {navButtons.map((btn) => (
+          <button
+            key={btn.label}
+            type="button"
+            onClick={() => setOpenMenu((prev) => (prev === btn ? null : btn))}
+            aria-expanded={openMenu === btn}
+            className={`${navItemBase} ${openMenu === btn ? NAV_ACTIVE : NAV_IDLE}`}
+          >
+            {btn.label}
+          </button>
+        ))}
       </nav>
 
       {openMenu && (
-        <div className="absolute left-[619px] top-[120px] z-30 flex gap-[28px] bg-[#201d1d] px-5 py-5">
+        <div className={`absolute ${openMenu.panelLeft} top-[120px] z-30 flex gap-[28px] bg-[#201d1d] px-5 py-5`}>
           {menuGroups.map((group) => (
             <div key={group.id} className="min-w-[160px]">
               <p className="m-0 mb-3 text-[11px] tracking-[0.15em] uppercase text-[rgba(241,238,238,0.65)]">
