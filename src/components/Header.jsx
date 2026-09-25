@@ -5,28 +5,33 @@ const navButtons = [
   { label: 'Other', panelLeft: 'left-[503px]' },
 ]
 
-// Mega menu 2 kolom (pola LAYOUT-VARIATIONS): label kategori + item judul+deskripsi
+// Mega menu 3 kolom: Server, Kontak, Galeri
 const menuGroups = [
   {
-    id: 'category-a',
-    label: 'Kategori A',
+    id: 'server',
+    label: 'Server',
     items: [
-      { title: 'Judul A1', desc: 'Deskripsi singkat A1' },
-      { title: 'Judul A2', desc: 'Deskripsi singkat A2' },
-      { title: 'Judul A3', desc: 'Deskripsi singkat A3' },
-      { title: 'Judul A4', desc: 'Deskripsi singkat A4' },
-      { title: 'Judul A5', desc: 'Deskripsi singkat A5' },
+      { title: 'Status Server', desc: 'Pantau status uptime bot secara realtime' },
+      { title: 'Fitur Utama', desc: 'Daftar fitur yang tersedia di server' },
+      { title: 'Undangan', desc: 'Link undangan untuk bergabung ke server' },
     ],
   },
   {
-    id: 'category-b',
-    label: 'Kategori B',
+    id: 'kontak',
+    label: 'Kontak',
     items: [
-      { title: 'Judul B1', desc: 'Deskripsi singkat B1' },
-      { title: 'Judul B2', desc: 'Deskripsi singkat B2' },
-      { title: 'Judul B3', desc: 'Deskripsi singkat B3' },
-      { title: 'Judul B4', desc: 'Deskripsi singkat B4' },
-      { title: 'Judul B5', desc: 'Deskripsi singkat B5' },
+      { title: 'Discord DM', desc: 'Kirim pesan langsung via Discord' },
+      { title: 'Email', desc: 'Hubungi melalui email resmi' },
+      { title: 'GitHub', desc: 'Lihat repositori dan kontribusi open source' },
+    ],
+  },
+  {
+    id: 'galeri',
+    label: 'Galeri',
+    items: [
+      { title: 'Foto', desc: 'Koleksi foto dan karya visual' },
+      { title: 'Pixel Art', desc: 'Kumpulan karya pixel art dither' },
+      { title: 'Proyek', desc: 'Dokumentasi proyek-proyek yang sudah dibangun' },
     ],
   },
 ]
