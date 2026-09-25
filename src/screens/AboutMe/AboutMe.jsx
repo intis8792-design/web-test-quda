@@ -82,8 +82,8 @@ function AboutMe() {
 
   return (
     <div className="relative min-h-screen w-full overflow-hidden bg-[#201d1d] font-mono text-[#f1eeee]">
-      {/* Background image — yellowchrome dither, ~50% opacity */}
-      <div className="pointer-events-none absolute inset-0 opacity-[0.5]">
+      {/* Background image — yellowchrome dither, 35% opacity, same crop as homepage hero */}
+      <div className="pointer-events-none absolute inset-x-0 top-0 h-[484px] overflow-hidden opacity-[0.35]">
         <img
           src={imgBg}
           alt=""
