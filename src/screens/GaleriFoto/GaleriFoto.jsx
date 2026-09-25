@@ -1,4 +1,11 @@
 import Header from '../../components/Header'
+import img10 from '../../assets/v2-assets/IMG_0140_46e8d3.jpg'
+import img11 from '../../assets/v2-assets/IMG_0099_5a1ade.jpg'
+import img12 from '../../assets/v2-assets/IMG_0100_cef3c6.jpg'
+import img13 from '../../assets/v2-assets/IMG_0103_3ccbc9.jpg'
+import img14 from '../../assets/v2-assets/IMG_0146_649f90.jpg'
+import img15 from '../../assets/v2-assets/IMG_0112_982cb7.jpg'
+import img16 from '../../assets/v2-assets/IMG_0111_bd5b32.jpg'
 
 /* Bento Grid — 9 foto dari galeriquda.carrd.co */
 const BASE = 'https://galeriquda.carrd.co/assets/images/gallery02'
@@ -13,6 +20,13 @@ const photos = [
   { id: '07', src: `${BASE}/3be52d5d.jpg?v=c919e3fa`, full: `${BASE}/3be52d5d_original.jpg?v=c919e3fa`, title: 'Morning Glory', span: '' },
   { id: '08', src: `${BASE}/e578c9a3.jpg?v=c919e3fa`, full: `${BASE}/e578c9a3_original.jpg?v=c919e3fa`, title: 'Zinnia', span: '' },
   { id: '09', src: `${BASE}/b29ec431.jpg?v=c919e3fa`, full: `${BASE}/b29ec431_original.jpg?v=c919e3fa`, title: 'Mutiara Hotel — Malioboro', span: 'col-span-2' },
+  { id: '10', src: img10, full: img10, title: 'Foto 10', span: 'col-span-2' },
+  { id: '11', src: img11, full: img11, title: 'Foto 11', span: '' },
+  { id: '12', src: img12, full: img12, title: 'Foto 12', span: '' },
+  { id: '13', src: img13, full: img13, title: 'Foto 13', span: '' },
+  { id: '14', src: img14, full: img14, title: 'Foto 14', span: 'col-span-2' },
+  { id: '15', src: img15, full: img15, title: 'Foto 15', span: '' },
+  { id: '16', src: img16, full: img16, title: 'Foto 16', span: '' },
 ]
 
 function GaleriFoto() {
