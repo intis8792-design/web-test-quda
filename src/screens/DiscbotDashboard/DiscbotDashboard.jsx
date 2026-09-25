@@ -42,6 +42,10 @@ const sections = [
 
 const menuItems = Array.from({ length: 10 }, (_, i) => `-test menu ${String.fromCharCode(65 + i)}`)
 
+// Full literal tokens so Tailwind JIT definitely generates them (active = inverse block)
+const NAV_IDLE = 'bg-transparent text-[#f1eeee]'
+const NAV_ACTIVE = 'bg-[#f1eeee] text-[#201d1d]'
+
 function DiscbotDashboard() {
   const [canvasScale, setCanvasScale] = useState(1)
   const [openMenu, setOpenMenu] = useState(null)
@@ -75,9 +79,9 @@ function DiscbotDashboard() {
                       type="button"
                       onClick={() => setOpenMenu((prev) => (prev === s.label ? null : s.label))}
                                     aria-expanded={openMenu === s.label}
-                                    className={`h-[33px] w-[108px] whitespace-nowrap border-0 bg-transparent px-0 text-center text-[#f1eeee] hover:bg-[#f1eeee] hover:text-[#201d1d] ${
-                                      openMenu === s.label ? 'bg-[#f1eeee] text-[#201d1d]' : ''
-                                    } max-[700px]:h-[28px] max-[700px]:w-[25%] max-[700px]:overflow-hidden max-[700px]:text-ellipsis`}
+                                    className={`h-[33px] w-[108px] whitespace-nowrap border-0 px-0 text-center hover:bg-[#f1eeee] hover:text-[#201d1d] ${
+                                                                          openMenu === s.label ? NAV_ACTIVE : NAV_IDLE
+                                                                        } max-[700px]:h-[28px] max-[700px]:w-[25%] max-[700px]:overflow-hidden max-[700px]:text-ellipsis`}
                     >
                       {s.label}
                     </button>
