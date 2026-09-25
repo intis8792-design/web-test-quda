@@ -1,5 +1,18 @@
 import Header from '../../components/Header'
 
+/* Bento Grid — foto utama 2×2, foto medium, foto kecil */
+const bentoItems = [
+  { id: '01', span: 'col-span-2 row-span-2', label: 'foto utama' },
+  { id: '02', span: '', label: '' },
+  { id: '03', span: '', label: '' },
+  { id: '04', span: 'row-span-2', label: '' },
+  { id: '05', span: 'col-span-2', label: '' },
+  { id: '06', span: '', label: '' },
+  { id: '07', span: '', label: '' },
+  { id: '08', span: '', label: '' },
+  { id: '09', span: 'col-span-2', label: '' },
+]
+
 function GaleriFoto() {
   return (
     <div className="min-h-screen w-full bg-[#201d1d] font-mono text-[#f1eeee]">
@@ -14,14 +27,21 @@ function GaleriFoto() {
           Koleksi foto pribadi dan hasil jepretan sehari-hari. Foto akan ditambahkan secara bertahap.
         </p>
 
-        {/* Grid foto — placeholder, siap diisi */}
-        <div className="grid grid-cols-3 gap-4 max-[700px]:grid-cols-2 max-[480px]:grid-cols-1">
-          {Array.from({ length: 6 }, (_, i) => (
+        {/* Bento Grid — 4 kolom, sel modular bervariasi */}
+        <div className="grid grid-cols-4 gap-3 max-[700px]:grid-cols-2">
+          {bentoItems.map((item) => (
             <div
-              key={i}
-              className="flex aspect-square items-center justify-center border border-dashed border-[rgba(241,238,238,0.35)] text-[13px] text-[rgba(241,238,238,0.35)]"
+              key={item.id}
+              className={`flex min-h-[160px] flex-col items-center justify-center border border-dashed border-[rgba(241,238,238,0.35)] p-3 ${item.span}`}
             >
-              foto {String(i + 1).padStart(2, '0')}
+              <span className="text-[11px] text-[rgba(241,238,238,0.35)]">
+                // {item.id}
+              </span>
+              {item.label && (
+                <span className="mt-1 text-[13px] text-[rgba(241,238,238,0.35)]">
+                  {item.label}
+                </span>
+              )}
             </div>
           ))}
         </div>
