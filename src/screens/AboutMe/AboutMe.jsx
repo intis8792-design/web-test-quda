@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import Header from '../../components/Header'
+import imgBg from '../../assets/v2-assets/sapi-dithered-yellowchrome.png'
 
 const panels = [
   { id: 'interest', label: '// 01. Interest' },
@@ -80,7 +81,18 @@ function AboutMe() {
   const ActivePanel = panelContent[active]
 
   return (
-    <div className="min-h-screen w-full bg-[#201d1d] font-mono text-[#f1eeee]">
+    <div className="relative min-h-screen w-full overflow-hidden bg-[#201d1d] font-mono text-[#f1eeee]">
+      {/* Background image — yellowchrome dither, ~50% opacity */}
+      <div className="pointer-events-none absolute inset-0 opacity-[0.5]">
+        <img
+          src={imgBg}
+          alt=""
+          className="absolute left-[-2.07%] top-0 h-full w-[104.5%] max-w-none"
+          style={{ imageRendering: 'pixelated' }}
+        />
+      </div>
+
+      <div className="relative z-10">
       <Header />
 
       {/* Splash header — Silkscreen */}
@@ -108,6 +120,7 @@ function AboutMe() {
           <ActivePanel />
         </section>
       </main>
+      </div>
     </div>
   )
 }
