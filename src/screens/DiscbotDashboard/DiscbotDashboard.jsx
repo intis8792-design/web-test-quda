@@ -11,8 +11,8 @@ const sections = [
     id: 'button1',
     label: 'About Me',
     sublabel: '// SECTION 01',
-    heading: 'Call me Qudarebus',
-    body: 'Maybe not minor friendly (current moots okay, but feel free to bub), and posts about random things, but mainly posts about video games. I also post my amateur photography things, and sometimes repost some memes and shitpost.',
+    heading: 'About Me',
+    body: 'Maybe not minor friendly, and posts about random things, but mainly posts about video games. I also repost some memes and shitpost.',
     img: imgBlue,
   },
   {
