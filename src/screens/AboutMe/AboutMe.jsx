@@ -81,18 +81,7 @@ function AboutMe() {
   const ActivePanel = panelContent[active]
 
   return (
-    <div className="relative min-h-screen w-full overflow-hidden bg-[#201d1d] font-mono text-[#f1eeee]">
-      {/* Background image — yellowchrome dither, 35% opacity, same crop as homepage hero */}
-      <div className="pointer-events-none absolute inset-x-0 top-0 h-[484px] overflow-hidden opacity-[0.35]">
-        <img
-          src={imgBg}
-          alt=""
-          className="absolute left-[-2.07%] top-0 h-full w-[104.5%] max-w-none"
-          style={{ imageRendering: 'pixelated' }}
-        />
-      </div>
-
-      <div className="relative z-10">
+    <div className="min-h-screen w-full bg-[#201d1d] font-mono text-[#f1eeee]">
       <Header />
 
       {/* Splash header — Silkscreen */}
@@ -100,7 +89,7 @@ function AboutMe() {
         ABOUT ME
       </h1>
 
-      {/* Console layout: sidebar sub-panel kiri + main panel kanan */}
+      {/* Console layout: sidebar kiri + panel kanan + gambar dither */}
       <main className="flex gap-8 px-8 pb-16 max-[700px]:flex-col max-[700px]:px-4">
         <aside className="w-[230px] shrink-0" aria-label="Panel navigation">
           {panels.map((p) => (
@@ -116,11 +105,22 @@ function AboutMe() {
           ))}
         </aside>
 
-        <section className="min-w-0 flex-1">
-          <ActivePanel />
+        <section className="flex min-w-0 flex-1 gap-8 max-[700px]:flex-col">
+          <div className="flex-1">
+            <ActivePanel />
+          </div>
+
+          {/* Gambar dither — cropped seperti homepage hero */}
+          <div className="w-[40%] shrink-0 overflow-hidden max-[700px]:w-full">
+            <img
+              src={imgBg}
+              alt=""
+              className="w-full"
+              style={{ imageRendering: 'pixelated' }}
+            />
+          </div>
         </section>
       </main>
-      </div>
     </div>
   )
 }
