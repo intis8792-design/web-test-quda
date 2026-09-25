@@ -37,7 +37,7 @@ const NAV_IDLE = 'bg-transparent text-[#f1eeee]'
 const NAV_ACTIVE = 'bg-[#f1eeee] text-[#201d1d]'
 
 const navItemBase =
-  'flex h-[33px] w-[108px] items-center justify-center whitespace-nowrap border-0 px-0 text-center hover:bg-[#f1eeee] hover:text-[#201d1d] max-[700px]:h-[28px] max-[700px]:w-[25%] max-[700px]:overflow-hidden max-[700px]:text-ellipsis'
+  'flex h-[33px] w-[130px] items-center justify-center whitespace-nowrap border-0 px-4 text-center hover:bg-[#f1eeee] hover:text-[#201d1d] max-[700px]:h-[28px] max-[700px]:w-[25%] max-[700px]:overflow-hidden max-[700px]:text-ellipsis'
 
 function Header() {
   const [openMenu, setOpenMenu] = useState(null)
@@ -53,12 +53,12 @@ function Header() {
 
       <nav
         aria-label="Content navigation"
-        className="absolute left-[271px] top-[39px] flex h-[33px] items-start gap-[8px] font-mono text-[15px] leading-[19.733px] max-[700px]:static max-[700px]:mt-2 max-[700px]:w-full max-[700px]:px-2 max-[700px]:gap-0 max-[700px]:text-[10px] max-[700px]:leading-[14px]"
+        className="absolute left-[271px] top-[39px] flex h-[33px] items-start gap-[12px] font-mono text-[15px] leading-[19.733px] max-[700px]:static max-[700px]:mt-2 max-[700px]:w-full max-[700px]:px-2 max-[700px]:gap-0 max-[700px]:text-[10px] max-[700px]:leading-[14px]"
       >
         <NavLink
           to="/about-me"
           className={({ isActive }) => `${navItemBase} ${isActive ? NAV_ACTIVE : NAV_IDLE}`}
-          style={{ width: '180px' }}
+          style={{ width: '210px' }}
         >
           Additional Information
         </NavLink>
