@@ -85,11 +85,11 @@ function DiscbotDashboard() {
         {sections.map((s, i) => (
           <div key={s.id}>
             {i > 0 && (
-                          <div className="my-14 overflow-hidden opacity-[0.66] max-[700px]:my-10">
+                          <div className="my-14 max-[700px]:my-10">
                             <img
                               src={transitionImage}
                               alt=""
-                              className="h-[220px] w-full object-cover"
+                              className="w-full"
                               style={{ imageRendering: 'pixelated' }}
                             />
                           </div>
