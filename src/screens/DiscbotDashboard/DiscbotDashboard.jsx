@@ -40,7 +40,30 @@ const sections = [
   },
 ]
 
-const menuItems = Array.from({ length: 10 }, (_, i) => `-test menu ${String.fromCharCode(65 + i)}`)
+const menuGroups = [
+  {
+    id: 'category-a',
+    label: 'Kategori A',
+    items: [
+      { title: 'Judul A1', desc: 'Deskripsi singkat A1' },
+      { title: 'Judul A2', desc: 'Deskripsi singkat A2' },
+      { title: 'Judul A3', desc: 'Deskripsi singkat A3' },
+      { title: 'Judul A4', desc: 'Deskripsi singkat A4' },
+      { title: 'Judul A5', desc: 'Deskripsi singkat A5' },
+    ],
+  },
+  {
+    id: 'category-b',
+    label: 'Kategori B',
+    items: [
+      { title: 'Judul B1', desc: 'Deskripsi singkat B1' },
+      { title: 'Judul B2', desc: 'Deskripsi singkat B2' },
+      { title: 'Judul B3', desc: 'Deskripsi singkat B3' },
+      { title: 'Judul B4', desc: 'Deskripsi singkat B4' },
+      { title: 'Judul B5', desc: 'Deskripsi singkat B5' },
+    ],
+  },
+]
 
 // Full literal tokens so Tailwind JIT definitely generates them (active = inverse block)
 const NAV_IDLE = 'bg-transparent text-[#f1eeee]'
@@ -89,25 +112,32 @@ function DiscbotDashboard() {
                 </nav>
 
                 {openMenu && (
-                  <div className="absolute left-[271px] top-[120px] z-30 w-[260px] border-[1px] border-[#f1eeee] bg-[#201d1d]">
-                    <div className="border-b-[1px] border-[#f1eeee]/30 px-3 py-2 text-[11px] tracking-[0.15em] uppercase text-[rgba(241,238,238,0.65)]">
-                      {openMenu}
-                    </div>
-                    <ul className="m-0 list-none p-0">
-                      {menuItems.map((item) => (
-                        <li key={item}>
-                          <a
-                            href="#"
-                            onClick={(e) => e.preventDefault()}
-                            className="block px-3 py-[7px] text-[13px] text-[#f1eeee] hover:bg-[#f1eeee] hover:text-[#201d1d]"
-                          >
-                            {item}
-                          </a>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                )}
+                                  <div className="absolute left-[271px] top-[120px] z-30 flex gap-[28px] bg-[#201d1d] px-5 py-5">
+                                    {menuGroups.map((group) => (
+                                      <div key={group.id} className="min-w-[160px]">
+                                        <p className="m-0 mb-3 text-[11px] tracking-[0.15em] uppercase text-[rgba(241,238,238,0.65)]">
+                                          {group.label}
+                                        </p>
+                                        <ul className="m-0 list-none p-0">
+                                          {group.items.map((item) => (
+                                            <li key={item.title}>
+                                              <a
+                                                href="#"
+                                                onClick={(e) => e.preventDefault()}
+                                                className="block px-2 py-[6px] text-[13px] leading-[1.3] text-[#f1eeee] hover:bg-[#f1eeee] hover:text-[#201d1d]"
+                                              >
+                                                <span className="block font-medium">{item.title}</span>
+                                                <span className="block text-[11px] text-[rgba(241,238,238,0.65)]">
+                                                  {item.desc}
+                                                </span>
+                                              </a>
+                                            </li>
+                                          ))}
+                                        </ul>
+                                      </div>
+                                    ))}
+                                  </div>
+                                )}
       </header>
 
       {/* Hero full-bleed — satu-satunya headline besar (level halaman, bukan per-section) */}
