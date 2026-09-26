@@ -13,7 +13,7 @@ const sections = [
     label: 'New Website',
     sublabel: '// SECTION 01',
     heading: 'A new place to share some information about me and my interest.',
-    body: 'Maybe not minor friendly, and posts about random things, but mainly posts about video games. I also repost some memes and shitpost.',
+    body: 'This website is a replacement to my carrd page',
     img: imgBlue,
   },
   {
@@ -35,8 +35,8 @@ const sections = [
   {
     id: 'section5',
     sublabel: '// SECTION 04',
-    heading: 'Tumbuh satu langkah lebih dekat',
-    body: 'Kemajuan tidak selalu datang dengan perubahan besar. Kadang ia hadir sebagai satu keputusan kecil yang berani dibuat, satu percobaan yang dijalankan, dan satu langkah yang membuat jalan berikutnya menjadi lebih jelas.',
+    heading: 'Disclaimer',
+    body: 'Most of the code are not mine, a.k.a vibecoded, and for the image assets, I use minecraft png, and edited it using ibispaint and ditherit web, and some minecraft screenshot.',
     img: imgGreen,
   },
 ]

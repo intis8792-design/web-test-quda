@@ -95,10 +95,10 @@ function Header() {
                       <Link
                         to={item.link}
                         onClick={() => setOpenMenu(null)}
-                        className="block px-2 py-[6px] text-[13px] leading-[1.3] text-[#f1eeee] hover:bg-[#f1eeee] hover:text-[#201d1d]"
+                        className="group block px-2 py-[6px] text-[13px] leading-[1.3] text-[#f1eeee] hover:bg-[#f1eeee] hover:text-[#201d1d]"
                       >
                         <span className="block font-medium">{item.title}</span>
-                        <span className="block text-[11px] text-[rgba(241,238,238,0.65)]">
+                        <span className="block text-[11px] text-[rgba(241,238,238,0.65)] group-hover:text-[#201d1d]">
                           {item.desc}
                         </span>
                       </Link>
@@ -106,10 +106,10 @@ function Header() {
                       <a
                         href="#"
                         onClick={(e) => e.preventDefault()}
-                        className="block px-2 py-[6px] text-[13px] leading-[1.3] text-[#f1eeee] hover:bg-[#f1eeee] hover:text-[#201d1d]"
+                        className="group block px-2 py-[6px] text-[13px] leading-[1.3] text-[#f1eeee] hover:bg-[#f1eeee] hover:text-[#201d1d]"
                       >
                         <span className="block font-medium">{item.title}</span>
-                        <span className="block text-[11px] text-[rgba(241,238,238,0.65)]">
+                        <span className="block text-[11px] text-[rgba(241,238,238,0.65)] group-hover:text-[#201d1d]">
                           {item.desc}
                         </span>
                       </a>
