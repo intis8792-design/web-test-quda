@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import Header from '../../components/Header'
-import backgroundImage from '../../assets/v2-assets/sapi-dithered.png'
-import imgBlue from '../../assets/v2-assets/sapi-dithered-blue.png'
-import imgRed from '../../assets/v2-assets/sapi-dithered-red.png'
-import imgYellow from '../../assets/v2-assets/sapi-dithered-yellowchrome.png'
-import imgGreen from '../../assets/v2-assets/sapi-dithered-green.png'
+import backgroundImage from '../../assets/v2-assets/sapi-dithered-yellowchrome-hero.png'
+import bodyImage from '../../assets/v2-assets/body-dithered.png'
+import minecraftScenery from '../../assets/v2-assets/minecraft-scenery-dithered-section1.png'
+import minecraftScenery4 from '../../assets/v2-assets/minecraft-scenery4-dithered.png'
+import minecraftScenery5 from '../../assets/v2-assets/minecraft-scenery5-dithered.png'
 
 const sections = [
   {
@@ -14,7 +14,7 @@ const sections = [
     sublabel: '// SECTION 01',
     heading: 'A new place to share some information about me and my interest.',
     body: 'This website is a replacement to my carrd page',
-    img: imgBlue,
+    img: minecraftScenery,
   },
   {
     id: 'button2',
@@ -22,22 +22,22 @@ const sections = [
     sublabel: '// SECTION 02',
     heading: 'About Me',
     body: 'Maybe not minor friendly, speak in Indonesian and English, like to posts about random things, but mainly posts about video games. I also repost some memes and shitpost.',
-    img: imgYellow,
+    img: bodyImage,
   },
   {
     id: 'button3',
     label: 'Interest',
     sublabel: '// SECTION 03',
     heading: 'Interest',
-    body: <>I play Minecraft and other games, for detail, see{' '}<Link to="/about-me" className="text-[#e6eb52] underline">Additional Information</Link>{' '}tab on the nav bar above. The other interest are musics, animanga, photography.</>,
-    img: imgRed,
+    body: <>I play Minecraft and other games, for detail, see{' '}<Link to="/about-me" className="text-[#fffedb] underline">Additional Information</Link>{' '}tab on the nav bar above. The other interest are musics, animanga, photography.</>,
+    img: minecraftScenery4,
   },
   {
     id: 'section5',
     sublabel: '// SECTION 04',
     heading: 'Disclaimer',
     body: 'Most of the code are not mine, a.k.a vibecoded, and for the image assets, I use minecraft png, and edited it using ibispaint and ditherit web, and some minecraft screenshot.',
-    img: imgGreen,
+    img: minecraftScenery5,
   },
 ]
 
@@ -52,7 +52,7 @@ function DiscbotDashboard() {
   }, [])
 
   return (
-    <div className="min-h-screen w-full bg-[#201d1d] font-mono text-[#f1eeee]">
+    <div className="min-h-screen w-full bg-[#303001] font-mono text-[#f1eeee]">
       <Header />
 
       {/* Hero full-bleed — satu-satunya headline besar (level halaman, bukan per-section) */}
@@ -71,8 +71,8 @@ function DiscbotDashboard() {
               />
             </div>
             <div className="absolute left-[57px] top-[304px] w-[364px] font-bytesized text-[64px] leading-[40px] tracking-[-0.02em] text-[#e6eb52]">
-              <p className="m-0">Lorem Ipsum</p>
-              <p className="m-0">Dolor Sit Amet</p>
+              <p className="m-0">Skibidi</p>
+              <p className="m-0">Toilet</p>
             </div>
             <div className="absolute left-[1042px] top-[142px] w-[364px] font-bytesized text-[64px] leading-[40px] tracking-[-0.02em] text-[#e6eb52]">
               <p className="m-0">Lorem Ipsum</p>
@@ -93,7 +93,7 @@ function DiscbotDashboard() {
                   <p className="m-0 mb-4 text-[13px] font-medium leading-[1.3] tracking-[0.08em] uppercase text-[rgba(241,238,238,0.65)]">
                     {s.sublabel}
                   </p>
-                  <h2 className="m-0 mb-5 text-[20px] font-medium leading-[1.3] text-[#e6eb52]">
+                  <h2 className="m-0 mb-5 text-[20px] font-medium leading-[1.3] text-[#fffedb]">
                     {s.heading}
                   </h2>
                   <p className="m-0 max-w-xl text-[14px] leading-[1.55] text-[rgba(241,238,238,0.65)]">
@@ -101,7 +101,12 @@ function DiscbotDashboard() {
                   </p>
                 </div>
                 <div className={`w-[45%] max-[700px]:w-full ${imageRight ? 'order-2' : 'order-1'}`}>
-                  <img src={s.img} alt="" className="w-full" style={{ imageRendering: 'pixelated' }} />
+                  <img
+                    src={s.img}
+                    alt=""
+                    className="w-full"
+                    style={{ imageRendering: 'pixelated' }}
+                  />
                 </div>
               </div>
             </section>

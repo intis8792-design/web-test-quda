@@ -1,14 +1,13 @@
 import Header from '../../components/Header'
 import imgYellow from '../../assets/v2-assets/sapi-dithered-yellowchrome.png'
-import imgEx from '../../assets/v2-assets/sapi-dithered-ex.png'
-import imgGold from '../../assets/v2-assets/sapi-dithered.png'
+import imgBotCommands from '../../assets/v2-assets/bot-commands-preview.png'
 
 const sections = [
   {
     id: 'bot-overview',
     sublabel: '// SECTION 01 — OVERVIEW',
     heading: 'Bot Discord Overview',
-    body: 'This bot is a Discord bot that have some features, like flight tracking, minecraft seeds tracking for biome and structure(It may be inaccurate), no man sky ship seeds database, and some other features. This bot is still in development, so some features are not available yet. Well, most of the bot codes are vibecoded, when I actually learned how to code, I will rewrite the bot codes to be more efficient and clean.',
+    body: 'This bot is a Discord bot that have some features, like flight tracking, minecraft seeds tracking for biome and structure(It may be inaccurate), no man sky ship seeds database, and some other features. This bot is still in development, and current usage is limited to private use. (DISCLAIMER) Well, most of the bot codes are vibecoded, when I actually learned how to code, I will rewrite the bot codes to be more efficient and clean.',
     img: imgYellow,
   },
   {
@@ -16,18 +15,18 @@ const sections = [
     sublabel: '// SECTION 02 — COMMANDS',
     heading: 'Bot Discord Commands',
     body: '/flight <callsign> - Get flight information by callsign, /minecraft-seed <seed> - Get biome and structure information by seed,  /nms-ship-seed <seed> - Get ship information by seed, and other commands',
-    img: imgEx,
+    img: imgBotCommands,
   },
   
 ]
 
 function BotDiscord() {
   return (
-    <div className="min-h-screen w-full bg-[#201d1d] font-mono text-[#f1eeee]">
+    <div className="min-h-screen w-full bg-[#303001] font-mono text-[#f1eeee]">
       <Header />
       <main className="px-8 pt-10 pb-16 max-[700px]:px-4">
         {/* Top hero headline — Bytesized, satu per halaman */}
-        <h1 className="m-0 mb-16 font-silkscreen text-[56px] leading-[1.1] tracking-[-0.02em] text-[#e6eb52] max-[700px]:text-[36px]">
+        <h1 className="m-0 mb-16 font-silkscreen text-[56px] leading-[1.1] tracking-[-0.02em] text-[#fffedb] max-[700px]:text-[36px]">
           BOT DISCORD
         </h1>
 
@@ -41,7 +40,7 @@ function BotDiscord() {
                   <p className="m-0 mb-4 text-[13px] font-medium leading-[1.3] tracking-[0.08em] uppercase text-[rgba(241,238,238,0.65)]">
                     {s.sublabel}
                   </p>
-                  <h2 className="m-0 mb-5 text-[20px] font-medium leading-[1.3] text-[#e6eb52]">
+                  <h2 className="m-0 mb-5 text-[20px] font-medium leading-[1.3] text-[#fffedb]">
                     {s.heading}
                   </h2>
                   <p className="m-0 max-w-xl text-[14px] leading-[1.55] text-[rgba(241,238,238,0.65)]">

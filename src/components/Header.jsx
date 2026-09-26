@@ -43,7 +43,7 @@ function Header() {
   const [openMenu, setOpenMenu] = useState(null)
 
   return (
-    <header className="sticky top-0 z-30 h-[81px] w-full bg-[#201d1d] relative">
+    <header className="sticky top-0 z-30 h-[81px] w-full bg-[#303001] relative">
       <Link
         to="/"
         className="logo-gradient absolute left-[6px] top-[10px] font-bytesized text-[56px] leading-[70.4px] tracking-[-0.02em] max-[700px]:static max-[700px]:block max-[700px]:px-6 max-[700px]:pt-3 max-[700px]:text-[38px] max-[700px]:leading-[48px]"
@@ -82,7 +82,7 @@ function Header() {
       </nav>
 
       {openMenu && (
-        <div className={`absolute ${openMenu.panelLeft} top-[120px] z-30 flex gap-[28px] bg-[#201d1d] px-5 py-5`}>
+        <div className={`absolute ${openMenu.panelLeft} top-[120px] z-30 flex gap-[28px] bg-[#7D7D1A] px-5 py-5`}>
           {menuGroups.map((group) => (
             <div key={group.id} className="min-w-[160px]">
               <p className="m-0 mb-3 text-[11px] tracking-[0.15em] uppercase text-[rgba(241,238,238,0.65)]">

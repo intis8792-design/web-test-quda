@@ -2,7 +2,7 @@
 @import "tailwindcss";
 
 :root {
-  --ink: #201d1d;
+  --ink: #303001;
   --surface-card: #f1eeee;
   --primary-active: #e6eb52;
   --splash-gradient-2: #fff19c;
@@ -18,24 +18,18 @@
 }
 
 .logo-gradient {
-  background: linear-gradient(
-    90deg,
-    var(--primary-active)     0%,
-    var(--splash-gradient-2) 35%,
-    var(--splash-gradient-3) 65%,
-    var(--splash-gradient-4) 100%
-  );
+  background: none;
   -webkit-background-clip: text;
   background-clip: text;
-  -webkit-text-fill-color: transparent;
-  color: transparent;
+  -webkit-text-fill-color: #fffedb;
+  color: #fffedb;
 }
 
 @supports not (background-clip: text) {
   .logo-gradient {
     background: none;
-    -webkit-text-fill-color: var(--primary-active);
-    color: var(--primary-active);
+    -webkit-text-fill-color: #fffedb;
+    color: #fffedb;
   }
 }
 

@@ -31,10 +31,10 @@ const photos = [
 
 function GaleriFoto() {
   return (
-    <div className="min-h-screen w-full bg-[#201d1d] font-mono text-[#f1eeee]">
+    <div className="min-h-screen w-full bg-[#303001] font-mono text-[#f1eeee]">
       <Header />
 
-      <h1 className="m-0 px-8 pt-10 pb-4 font-silkscreen text-[56px] leading-[1.1] tracking-[-0.02em] text-[#e6eb52] max-[700px]:px-4 max-[700px]:text-[36px]">
+      <h1 className="m-0 px-8 pt-10 pb-4 font-silkscreen text-[56px] leading-[1.1] tracking-[-0.02em] text-[#fffedb] max-[700px]:px-4 max-[700px]:text-[36px]">
         GALERI FOTO
       </h1>
 

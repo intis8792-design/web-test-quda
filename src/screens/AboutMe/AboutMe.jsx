@@ -16,7 +16,7 @@ const subItemBase =
 
 function PanelTitle({ children }) {
   return (
-    <h2 className="m-0 mb-6 inline-block border-b border-dashed border-[rgba(241,238,238,0.35)] pb-2 text-[20px] font-medium text-[#e6eb52]">
+    <h2 className="m-0 mb-6 inline-block border-b border-dashed border-[rgba(241,238,238,0.35)] pb-2 text-[20px] font-medium text-[#fffedb]">
       {children}
     </h2>
   )
@@ -35,19 +35,26 @@ function InterestPanel() {
   return (
     <div>
       <PanelTitle>Interest Section</PanelTitle>
-      <p className="m-0 max-w-2xl text-[14px] leading-[1.6] text-[#f1eeee]">
-        I play some gachaslop like hoyo games (Genshin, Zenless, Honkai Star Rail), WuWa,
-        AKEndfield, and other games in general including minecraft, KCD, and roblox.
-      </p>
-      <h3 className="m-0 mt-8 mb-4 text-[13px] font-medium uppercase tracking-[0.08em] text-[#e6eb52]">
-        // Music — favorite artists & genres
-      </h3>
-      {music.map((m) => (
-        <p key={m} className="m-0 mb-2 text-[14px] leading-[1.6]">
-          <span className="text-[#e6eb52]">- </span>
-          <span className="text-[#f1eeee]">{m}</span>
+      <section aria-labelledby="game-interests">
+        <h3 id="game-interests" className="m-0 mb-3 text-[13px] font-medium uppercase tracking-[0.08em] text-[#fffedb]">
+          // Game
+        </h3>
+        <p className="m-0 max-w-2xl text-[14px] leading-[1.6] text-[#f1eeee]">
+          I play some gachaslop like hoyo games (Genshin, Zenless, Honkai Star Rail), WuWa,
+          AKEndfield, and other games in general including minecraft, KCD, and roblox.
         </p>
-      ))}
+      </section>
+      <section aria-labelledby="music-interests" className="mt-8">
+        <h3 id="music-interests" className="m-0 mb-4 text-[13px] font-medium uppercase tracking-[0.08em] text-[#fffedb]">
+          // Music — favorite artists & genres
+        </h3>
+        {music.map((m) => (
+          <p key={m} className="m-0 mb-2 text-[14px] leading-[1.6]">
+            <span className="text-[#fffedb]">- </span>
+            <span className="text-[#f1eeee]">{m}</span>
+          </p>
+        ))}
+      </section>
     </div>
   )
 }
@@ -81,11 +88,11 @@ function AboutMe() {
   const ActivePanel = panelContent[active]
 
   return (
-    <div className="min-h-screen w-full bg-[#201d1d] font-mono text-[#f1eeee]">
+    <div className="min-h-screen w-full bg-[#303001] font-mono text-[#f1eeee]">
       <Header />
 
       {/* Splash header — Silkscreen */}
-      <h1 className="m-0 px-8 pt-10 pb-8 font-silkscreen text-[56px] leading-[1.1] tracking-[-0.02em] text-[#e6eb52] max-[700px]:px-4 max-[700px]:text-[36px]">
+      <h1 className="m-0 px-8 pt-10 pb-8 font-silkscreen text-[56px] leading-[1.1] tracking-[-0.02em] text-[#fffedb] max-[700px]:px-4 max-[700px]:text-[36px]">
         ADDITIONAL INFORMATION
       </h1>
 
