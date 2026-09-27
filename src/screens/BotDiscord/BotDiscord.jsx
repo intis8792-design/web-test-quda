@@ -7,7 +7,7 @@ const sections = [
     id: 'bot-overview',
     sublabel: '// SECTION 01 — OVERVIEW',
     heading: 'Bot Discord Overview',
-    body: 'This bot is a Discord bot that have some features, like flight tracking, minecraft seeds tracking for biome and structure(It may be inaccurate), no man sky ship seeds database, and some other features. This bot is still in development, and current usage is limited to private use. (DISCLAIMER) Well, most of the bot codes are vibecoded, when I actually learned how to code, I will rewrite the bot codes to be more efficient and clean.',
+    body: 'This bot is a Discord bot that have some features, like flight tracking, minecraft seeds tracking for biome and structure(It may be inaccurate), no man sky ship seeds database, and some other features. This bot is still in development, and current usage is limited to private use. (DISCLAIMER) Well, the bot codes are vibecoded, that\'s why I use it for private use for now. When I actually learned how to code, I will rewrite the bot codes to be more efficient and clean, and maybe publish the bot for public use.',
     img: imgYellow,
   },
   {

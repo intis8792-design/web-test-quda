@@ -13,7 +13,7 @@ const sections = [
     label: 'New Website',
     sublabel: '// SECTION 01',
     heading: 'A new place to share some information about me and my interest.',
-    body: 'This website is a replacement to my carrd page',
+    body: 'This website is a replacement to my current carrd page. Why I made the replacement for my perfectly working carrd page? I want to make a website that is more flexible and customizable than carrd (some carrd feature are limited to paywall).',
     img: minecraftScenery,
   },
   {
@@ -21,7 +21,7 @@ const sections = [
     label: 'About Me',
     sublabel: '// SECTION 02',
     heading: 'About Me',
-    body: 'Maybe not minor friendly, speak in Indonesian and English, like to posts about random things, but mainly posts about video games. I also repost some memes and shitpost.',
+    body: 'The name\'s Qudarebus, maybe not minor friendly, speak in Indonesian and English, like to posts about random things, but mainly posts about video games. I also repost some memes and shitpost.',
     img: bodyImage,
   },
   {
@@ -29,14 +29,14 @@ const sections = [
     label: 'Interest',
     sublabel: '// SECTION 03',
     heading: 'Interest',
-    body: <>I play Minecraft and other games, for detail, see{' '}<Link to="/about-me" className="text-[#fffedb] underline">Additional Information</Link>{' '}tab on the nav bar above. The other interest are musics, animanga, photography.</>,
+    body: <>I play Minecraft and other games, for other details, see{' '}<Link to="/about-me" className="text-[#fffedb] underline">Additional Information</Link>{' '}tab on the nav bar above. The other interest are musics, animanga, photography.</>,
     img: minecraftScenery4,
   },
   {
     id: 'section5',
     sublabel: '// SECTION 04',
     heading: 'Disclaimer',
-    body: 'Most of the code are not mine, a.k.a vibecoded, and for the image assets, I use minecraft png, and edited it using ibispaint and ditherit web, and some minecraft screenshot.',
+    body: 'Most of the codes are vibecoded, and for the image assets, I use minecraft mobloom image, and edited it using ibispaint and ditherit web, and some minecraft screenshot edited using ditherit web.',
     img: minecraftScenery5,
   },
 ]
